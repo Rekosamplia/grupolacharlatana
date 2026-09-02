@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto · La Charlatana</title>
+<link rel="stylesheet" href="_ds/samplia-design-system-3b8c391a-4304-4ac7-a11b-0dd4cb4af9a4/colors_and_type.css">
+<link rel="icon" href="assets/logo-charlatana.avif" type="image/avif">
+<link rel="apple-touch-icon" href="assets/logo-charlatana.avif">
+<style>
+  :root {
+    --samplia-red-700: #c73346; --samplia-red-100: #f1d8de;
+    --primary: #c73346; --primary-hover: #b32a3c; --primary-soft: #f1d8de;
+    --bg: #ffffff; --bg-muted: #f2f2f2;
+    --fg1: #000000; --fg2: #444444; --fg3: #999999; --fg-on-primary: #ffffff;
+    --border: #e6e6e6; --border-strong: #cccccc;
+    --font-display: "Raleway", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "Raleway", "Helvetica Neue", Arial, sans-serif;
+    --fs-12: .75rem; --fs-14: .875rem; --fs-16: 1rem; --fs-18: 1.125rem; --fs-20: 1.25rem;
+    --fs-24: 1.5rem; --fs-30: 1.875rem; --fs-36: 2.25rem; --fs-48: 3rem;
+    --r-md: 8px; --r-lg: 12px; --r-xl: 20px; --r-pill: 999px;
+    --shadow-md: 0 6px 16px rgba(15,15,15,.08), 0 2px 4px rgba(15,15,15,.04);
+    --shadow-brand: 0 12px 28px rgba(199,51,70,.22);
+    --ease-out: cubic-bezier(.22,1,.36,1);
+    --dur-fast: 120ms;
+    --maxw-page: 1240px;
+  }
+  * { box-sizing: border-box; }
+  img { max-width: 100%; }
+  body { margin: 0; background: var(--bg) url("assets/bg-textura.jpg") repeat center / 1200px auto; font-family: var(--font-body); -webkit-font-smoothing: antialiased; color: var(--fg1); }
+  a { color: var(--primary); text-decoration: none; }
+  a:hover { color: var(--primary-hover); }
+  .contact-card:hover { transform: translateY(-2px); border-color: var(--primary); }
+</style>
+</head>
+<body>
+
+  <header style="position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:16px clamp(16px,3vw,32px);background:rgba(12,8,8,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08)">
+    <a href="index.html" style="display:flex;align-items:center;gap:14px;min-width:0">
+      <img src="assets/logo-charlatana.avif" alt="La Charlatana" style="height:36px;width:auto;display:block;flex:none">
+      <span style="width:1px;height:26px;background:rgba(255,255,255,0.18);flex:none"></span>
+      <span class="s-caption" style="text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.62);white-space:nowrap">Madrid 2026</span>
+    </a>
+    <a href="index.html" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);white-space:nowrap">← Volver a la web</a>
+  </header>
+
+  <section style="position:relative;overflow:hidden;background:var(--primary);color:#fff;padding:clamp(48px,8vw,72px) clamp(20px,4vw,32px)">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.22) 1.5px, transparent 1.6px);background-size:26px 26px;opacity:0.45;pointer-events:none"></div>
+    <div style="position:relative;max-width:var(--maxw-page);margin:0 auto;text-align:center">
+      <div class="s-eyebrow" style="color:#fff">Grupo La Charlatana</div>
+      <h1 style="margin:12px 0 0;font-family:var(--font-display);font-weight:900;font-style:italic;font-size:clamp(2.4rem,6vw,4rem);letter-spacing:-0.03em">CONTACTO</h1>
+      <p style="margin:14px auto 0;max-width:52ch;font-size:var(--fs-18);color:rgba(255,255,255,0.92)">¿Dudas, reservas de grupo o propuestas? Escríbenos o llámanos.</p>
+    </div>
+  </section>
+
+  <section style="max-width:640px;margin:0 auto;padding:clamp(56px,8vw,88px) clamp(20px,4vw,32px)">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <a href="mailto:hola@grupocharlatana.com" class="contact-card" style="display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:22px 24px;box-shadow:var(--shadow-md);transition:transform var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)">
+        <span style="flex:none;width:48px;height:48px;border-radius:50%;background:var(--primary-soft);display:flex;align-items:center;justify-content:center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c73346" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 9 6.5 9-6.5"/></svg>
+        </span>
+        <span>
+          <span style="display:block;font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3)">Email</span>
+          <span style="display:block;margin-top:2px;font-size:var(--fs-18);font-weight:700;color:var(--fg1)">hola@grupocharlatana.com</span>
+        </span>
+      </a>
+      <a href="tel:+34637796952" class="contact-card" style="display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:22px 24px;box-shadow:var(--shadow-md);transition:transform var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)">
+        <span style="flex:none;width:48px;height:48px;border-radius:50%;background:var(--primary-soft);display:flex;align-items:center;justify-content:center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c73346" stroke-width="1.8"><path d="M4.5 3.5h4l2 5-2.5 2a13 13 0 0 0 5.5 5.5l2-2.5 5 2v4a2 2 0 0 1-2 2C10.5 21.5 2.5 13.5 2.5 5.5a2 2 0 0 1 2-2Z"/></svg>
+        </span>
+        <span>
+          <span style="display:block;font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3)">Teléfono</span>
+          <span style="display:block;margin-top:2px;font-size:var(--fs-18);font-weight:700;color:var(--fg1)">+34 637 79 69 52</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <footer style="position:relative;overflow:hidden;padding:clamp(48px,7vw,72px) clamp(20px,4vw,32px);background:#000">
+    <img src="uploads/bg_header_charlatana.webp" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:66% 32%;display:block">
+    <div style="position:absolute;inset:0;background:rgba(4,2,2,0.8)"></div>
+    <div style="position:relative;z-index:1;max-width:var(--maxw-page);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center">
+      <span style="display:inline-flex;background:#fff;border-radius:var(--r-lg);padding:22px 34px">
+        <img src="assets/logo-charlatana.avif" alt="La Charlatana" style="height:clamp(64px,9vw,104px);width:auto;display:block">
+      </span>
+      <a href="index.html" style="font-size:var(--fs-14);font-weight:700;color:#fff">← Volver a la web</a>
+      <span style="font-size:var(--fs-12);font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6)">© 2026 Grupo La Charlatana · Madrid</span>
+    </div>
+  </footer>
+
+</body>
+</html>
