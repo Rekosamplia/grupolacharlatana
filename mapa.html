@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Mapa · Villaverde Alto, La Charlatana, Estadio Shakira</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="_ds/samplia-design-system-3b8c391a-4304-4ac7-a11b-0dd4cb4af9a4/colors_and_type.css">
+<style>
+  html, body { margin: 0; height: 100%; background: #f2f2f2; }
+  #map { width: 100%; height: 100%; }
+  .leaflet-container { font-family: "Raleway", sans-serif; }
+  .pin { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #fff;
+         font: 800 13px/1 "Raleway", sans-serif; box-shadow: 0 6px 16px rgba(15,15,15,.28); border: 2px solid #fff; }
+  .pin-metro { background: #444444; }
+  .pin-rest { background: #c73346; }
+  .pin-show { background: #000; }
+  .pop b { font: 800 14px/1.2 "Raleway", sans-serif; color: #000; display: block; margin-bottom: 4px; }
+  .pop span { font: 500 12px/1.4 "Raleway", sans-serif; color: #444; }
+  .legend { position: absolute; z-index: 500; left: 12px; bottom: 22px; background: rgba(255,255,255,.94);
+            backdrop-filter: blur(8px); border: 1px solid #e6e6e6; border-radius: 12px; padding: 12px 14px;
+            display: flex; flex-direction: column; gap: 8px; font-family: "Raleway", sans-serif; }
+  .legend div { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: #2a2a2a; }
+  .legend i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div class="legend">
+  <div><i style="background:#444444"></i>1 · Villaverde Alto · Metro / Cercanías</div>
+  <div><i style="background:#c73346"></i>2 · La Charlatana · Av. Real de Pinto, 87</div>
+  <div><i style="background:#000"></i>3 · Estadio Shakira · Iberdrola Music</div>
+</div>
+<script>
+  var METRO = [40.3415969, -3.7125024];
+  var REST = [40.34520, -3.69020];
+  var SHOW = [40.332071, -3.706456];
+
+  var map = L.map('map', { scrollWheelZoom: false, zoomControl: true });
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors', maxZoom: 19
+  }).addTo(map);
+
+  function icon(cls, txt) {
+    return L.divIcon({ className: '', html: '<div class="pin ' + cls + '">' + txt + '</div>',
+      iconSize: [34, 34], iconAnchor: [17, 17], popupAnchor: [0, -18] });
+  }
+
+  L.marker(METRO, { icon: icon('pin-metro', '1'), title: 'Villaverde Alto' }).addTo(map)
+    .bindPopup('<div class="pop"><b>Villaverde Alto</b><span>Metro L3 · Cercanías C5</span></div>');
+
+  L.marker(REST, { icon: icon('pin-rest', '2'), title: 'La Charlatana' }).addTo(map)
+    .bindPopup('<div class="pop"><b>La Charlatana</b><span>Av. Real de Pinto, 87 · Villaverde, 28021 Madrid<br>Tu mesa antes del concierto</span></div>');
+
+  L.marker(SHOW, { icon: icon('pin-show', '3'), title: 'Estadio Shakira · Iberdrola Music' }).addTo(map)
+    .bindPopup('<div class="pop"><b>Estadio Shakira</b><span>Iberdrola Music, Madrid<br>Las mujeres ya no lloran · Residencia Europea</span></div>');
+
+  L.circle(SHOW, { radius: 420, color: '#000', weight: 1.5, fillColor: '#000', fillOpacity: .06 }).addTo(map);
+
+  var allBounds = L.latLngBounds([METRO, REST, SHOW]);
+  map.fitBounds(allBounds, { padding: [64, 64] });
+
+  // Real street-following route through the 3 stops (~5.6 km end to end,
+  // too far to walk), via the free OSRM demo routing service — no API key
+  // required. Falls back to a straight dashed line if the request fails
+  // (offline, rate limit, etc.).
+  function drawStraightFallback() {
+    L.polyline([METRO, REST, SHOW], { color: '#c73346', weight: 2.5, dashArray: '7 7', opacity: .85 }).addTo(map);
+  }
+
+  var waypoints = [METRO, REST, SHOW].map(function (p) { return p[1] + ',' + p[0]; }).join(';');
+  var routeUrl = 'https://router.project-osrm.org/route/v1/driving/' + waypoints + '?overview=full&geometries=geojson';
+
+  fetch(routeUrl)
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (data && data.code === 'Ok' && data.routes && data.routes[0]) {
+        var latlngs = data.routes[0].geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
+        L.polyline(latlngs, { color: '#c73346', weight: 4, opacity: .85, lineJoin: 'round', lineCap: 'round' }).addTo(map);
+      } else {
+        drawStraightFallback();
+      }
+    })
+    .catch(function () { drawStraightFallback(); });
+</script>
+</body>
+</html>

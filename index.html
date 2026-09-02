@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/samplia-design-system-3b8c391a-4304-4ac7-a11b-0dd4cb4af9a4/colors_and_type.css">
+<script src="_ds/samplia-design-system-3b8c391a-4304-4ac7-a11b-0dd4cb4af9a4/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<link rel="icon" href="assets/logo-charlatana.avif" type="image/avif">
+<link rel="apple-touch-icon" href="assets/logo-charlatana.avif">
+<style>
+  :root {
+    --samplia-red-700: #c73346; --samplia-red-100: #f1d8de;
+    --primary: #c73346; --primary-hover: #b32a3c; --primary-soft: #f1d8de;
+    --bg: #ffffff; --bg-muted: #f2f2f2;
+    --fg1: #000000; --fg2: #444444; --fg3: #999999; --fg-on-primary: #ffffff;
+    --border: #e6e6e6; --border-strong: #cccccc;
+    --font-display: "Raleway", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "Raleway", "Helvetica Neue", Arial, sans-serif;
+    --fs-12: .75rem; --fs-14: .875rem; --fs-16: 1rem; --fs-18: 1.125rem; --fs-20: 1.25rem;
+    --fs-24: 1.5rem; --fs-30: 1.875rem; --fs-36: 2.25rem; --fs-48: 3rem;
+    --r-md: 8px; --r-lg: 12px; --r-xl: 20px; --r-pill: 999px;
+    --shadow-sm: 0 2px 6px rgba(15,15,15,.06), 0 1px 2px rgba(15,15,15,.04);
+    --shadow-md: 0 6px 16px rgba(15,15,15,.08), 0 2px 4px rgba(15,15,15,.04);
+    --shadow-lg: 0 16px 40px rgba(15,15,15,.10), 0 4px 8px rgba(15,15,15,.04);
+    --shadow-brand: 0 12px 28px rgba(199,51,70,.22);
+    --ease-out: cubic-bezier(.22,1,.36,1); --ease-std: cubic-bezier(.4,0,.2,1);
+    --dur-fast: 120ms; --dur-base: 220ms;
+    --maxw-page: 1240px;
+  }
+  img, iframe { max-width: 100%; }
+  body { margin: 0; background: var(--bg) url("assets/bg-textura.jpg") repeat center / 1200px auto; font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  a { color: var(--primary); text-decoration: none; }
+  a:hover { color: var(--primary-hover); }
+  input, select, textarea, button { font-family: var(--font-body); }
+  input:focus, select:focus, textarea:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
+  @keyframes pulseDot { 0%,100% { opacity: 1 } 50% { opacity: .3 } }
+  [data-rise] { opacity: 0; transform: translateY(16px); transition: opacity 620ms var(--ease-out), transform 620ms var(--ease-out); }
+  [data-rise][data-in="1"] { opacity: 1; transform: none; }
+  [data-fade] { opacity: 0; transition: opacity 480ms var(--ease-out); }
+  [data-fade][data-in="1"] { opacity: 1; }
+  [data-pop] { opacity: 0; transform: scale(0.94); transition: opacity 480ms var(--ease-out), transform 480ms var(--ease-out); }
+  [data-pop][data-in="1"] { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { [data-rise], [data-pop], [data-fade] { opacity: 1 !important; transform: none !important; transition: none !important; } }
+  @media print { [data-rise], [data-pop], [data-fade] { opacity: 1 !important; transform: none !important; transition: none !important; } }
+  [data-hamburger] { display: none; }
+  @media (max-width: 900px) {
+    [data-nav] { display: none !important; }
+    [data-cta-reserva] { display: none !important; }
+    [data-hamburger] { display: inline-flex !important; }
+  }
+  @media (max-width: 600px) {
+    [data-hero] { min-height: 620px !important; }
+    [data-hero] img { object-position: 72% 32% !important; }
+  }
+  @media (max-width: 720px) {
+    [data-gal] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; grid-auto-rows: 160px !important; }
+    [data-gal] > * { grid-column: span 1 !important; grid-row: span 1 !important; }
+    [data-hero-stats] { gap: 24px !important; }
+  }
+  @media (max-width: 640px) {
+    [data-header] { padding-left: 14px !important; padding-right: 14px !important; gap: 8px !important; }
+    [data-brand] { gap: 8px !important; }
+    [data-logo] { height: 26px !important; }
+    [data-divider] { height: 18px !important; }
+    [data-madrid] { font-size: 9px !important; letter-spacing: 0.08em !important; }
+    [data-hamburger] { width: 38px !important; height: 38px !important; }
+  }
+  @media (max-width: 400px) {
+    [data-header] { gap: 6px !important; }
+    [data-brand] { gap: 6px !important; }
+    [data-logo] { height: 22px !important; }
+    [data-madrid] { font-size: 8px !important; letter-spacing: 0.05em !important; }
+    [data-hamburger] { width: 34px !important; height: 34px !important; }
+  }
+  @media (max-width: 640px) {
+    [data-hero-stats] { flex-wrap: nowrap !important; gap: 12px !important; }
+    [data-hero-stats] .stat-num { font-size: 1.35rem !important; white-space: nowrap; }
+    [data-hero-stats] .stat-label { font-size: 9.5px !important; letter-spacing: 0.06em !important; }
+  }
+  @media (max-width: 380px) {
+    [data-hero-stats] { gap: 8px !important; }
+    [data-hero-stats] .stat-num { font-size: 1.15rem !important; }
+    [data-hero-stats] .stat-label { font-size: 8.5px !important; letter-spacing: 0.03em !important; }
+  }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:url('assets/bg-textura.jpg') repeat center / 1200px auto, var(--bg);color:var(--fg1)">
+
+  <header data-header="1" style="position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:16px clamp(16px,3vw,32px);background:rgba(12,8,8,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08)">
+    <div data-brand="1" style="display:flex;align-items:center;gap:14px;min-width:0">
+      <img data-logo="1" src="assets/logo-charlatana.avif" alt="La Charlatana" style="height:36px;width:auto;display:block;flex:none">
+      <span data-divider="1" style="width:1px;height:26px;background:rgba(255,255,255,0.18);flex:none"></span>
+      <span data-madrid="1" class="s-caption" style="text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.62);white-space:nowrap">Madrid 2026</span>
+    </div>
+    <nav data-nav="1" style="display:flex;align-items:center;gap:30px">
+      <a href="#galeria" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);transition:color var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary-soft)">Galería</a>
+      <a href="#llegar" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);transition:color var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary-soft)">Cómo llegar</a>
+    </nav>
+    <a data-cta-reserva="1" href="reservas.html" style="border:none;cursor:pointer;background:var(--primary);color:var(--fg-on-primary);border-radius:var(--r-pill);padding:13px 24px;font-size:var(--fs-14);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;box-shadow:var(--shadow-brand);transition:background var(--dur-fast) var(--ease-out);white-space:nowrap;flex:none" style-hover="background:var(--primary-hover);color:var(--fg-on-primary)">Reserva tu mesa</a>
+    <button data-hamburger="1" type="button" onClick="{{ toggleMenu }}" aria-label="Abrir menú" style="cursor:pointer;background:transparent;border:1.5px solid rgba(255,255,255,0.4);border-radius:var(--r-md);width:44px;height:44px;align-items:center;justify-content:center;flex:none">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M2 5h16M2 10h16M2 15h16"/></svg>
+    </button>
+  </header>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeMenu }}" style="position:fixed;inset:0;z-index:90;background:rgba(6,3,3,0.6)"></div>
+    <div style="position:fixed;top:0;right:0;bottom:0;z-index:95;width:min(320px,86vw);background:#0c0808;border-left:1px solid rgba(255,255,255,0.1);padding:20px;display:flex;flex-direction:column;gap:6px;box-shadow:-16px 0 40px rgba(0,0,0,0.4)">
+      <button type="button" onClick="{{ closeMenu }}" aria-label="Cerrar menú" style="align-self:flex-end;cursor:pointer;background:transparent;border:none;color:#fff;width:36px;height:36px;font-size:var(--fs-24);line-height:1">×</button>
+      <a href="#galeria" onClick="{{ closeMenu }}" style="padding:14px 8px;font-size:var(--fs-18);font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)">Galería</a>
+      <a href="#llegar" onClick="{{ closeMenu }}" style="padding:14px 8px;font-size:var(--fs-18);font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)">Cómo llegar</a>
+      <a href="reservas.html" style="margin-top:18px;text-align:center;cursor:pointer;background:var(--primary);color:#fff;border-radius:var(--r-pill);padding:16px 24px;font-size:var(--fs-16);font-weight:800;letter-spacing:0.06em;text-transform:uppercase;box-shadow:var(--shadow-brand)">Reservar →</a>
+    </div>
+  </sc-if>
+
+  <section data-hero="1" style="position:relative;overflow:hidden;min-height:clamp(600px,90vh,880px);display:flex;align-items:flex-end;color:#fff">
+    <div style="position:absolute;inset:0;z-index:0;background:#0a0505">
+      <img src="uploads/bg_header_charlatana.webp" alt="Rótulo de neón de La Charlatana sobre el ambiente de un concierto" style="width:100%;height:100%;object-fit:cover;object-position:66% 32%;display:block;opacity:0.92">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(100deg, rgba(4,2,2,0.92) 0%, rgba(4,2,2,0.6) 40%, rgba(4,2,2,0.2) 72%, rgba(4,2,2,0.08) 100%), linear-gradient(0deg, rgba(4,2,2,0.92) 0%, rgba(4,2,2,0.35) 38%, rgba(4,2,2,0.05) 62%)"></div>
+    </div>
+    <div style="position:relative;z-index:1;max-width:var(--maxw-page);margin:0 auto;width:100%;padding:clamp(120px,16vw,168px) clamp(20px,4vw,32px) clamp(56px,7vw,80px)">
+      <div style="max-width:640px">
+        <h1 style="margin:0;font-family:var(--font-display);font-weight:900;font-style:italic;font-size:clamp(3rem,7.5vw,5.75rem);line-height:0.94;letter-spacing:-0.03em;text-wrap:balance;text-shadow:0 4px 24px rgba(0,0,0,0.35)">CLARAmente La mejor<br>PREVIA y AFTER<br><span style="font-weight:500;font-style:normal;font-size:0.32em;letter-spacing:0.01em;line-height:1.3;display:inline-block;margin-top:10px">A 10 minutos del concierto.</span></h1>
+        <p style="margin:20px 0 0;max-width:46ch;font-size:var(--fs-20);line-height:1.6;color:rgba(255,255,255,0.92);text-wrap:pretty">12 noches de concierto, 12 noches de cena. Elige tu fecha, elige tu pack y siéntate: nosotros ponemos la mesa, la cerveza y el ruido.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:36px">
+          <a href="reservas.html" style="border:none;cursor:pointer;background:#fff;color:var(--primary);border-radius:var(--r-pill);padding:18px 34px;font-size:var(--fs-16);font-weight:800;letter-spacing:0.06em;text-transform:uppercase;box-shadow:0 12px 28px rgba(0,0,0,0.35);transition:transform var(--dur-fast) var(--ease-out)" style-hover="transform:translateY(-2px)" style-active="transform:scale(0.97)">Reserva tu mesa →</a>
+          <a href="reservas.html#packs" style="cursor:pointer;background:rgba(0,0,0,0.25);color:#fff;border:1.5px solid rgba(255,255,255,0.7);border-radius:var(--r-pill);padding:18px 30px;font-size:var(--fs-16);font-weight:700;backdrop-filter:blur(4px);transition:background var(--dur-fast) var(--ease-out)" style-hover="background:rgba(255,255,255,0.18)">Ver los packs</a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,40px);margin-top:48px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.25)" data-hero-stats="1">
+          <div style="min-width:0">
+            <div class="stat-num" style="font-family:var(--font-display);font-weight:900;font-size:var(--fs-36);line-height:1">12</div>
+            <div class="stat-label" style="font-size:var(--fs-12);font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-top:4px">Noches de concierto</div>
+          </div>
+          <div style="min-width:0">
+            <div class="stat-num" style="font-family:var(--font-display);font-weight:900;font-size:var(--fs-36);line-height:1">4</div>
+            <div class="stat-label" style="font-size:var(--fs-12);font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-top:4px">Packs de cena</div>
+          </div>
+          <div style="min-width:0">
+            <div class="stat-num" style="font-family:var(--font-display);font-weight:900;font-size:var(--fs-36);line-height:1">19,90 €</div>
+            <div class="stat-label" style="font-size:var(--fs-12);font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-top:4px">Desde, por persona</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ verGaleria }}" hint-placeholder-val="{{ true }}">
+    <section id="galeria" style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) 0">
+      <div data-rise="1" class="s-eyebrow">La mesa</div>
+      <h2 data-rise="1" class="s-h2" style="margin:12px 0 40px;font-size:var(--fs-36)">Lo que vas a cenar</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(150px,18vw,220px);gap:16px" data-gal="1">
+        <div style="grid-column:span 2;grid-row:span 2;border-radius:var(--r-lg);overflow:hidden;background:var(--bg-muted)">
+          <img src="assets/plato-chuleton.jpg" alt="Chuletón al punto con patatas" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div style="border-radius:var(--r-lg);overflow:hidden;background:var(--bg-muted)">
+          <img src="assets/plato-pollo.jpg" alt="Pollo asado con patatas" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div style="border-radius:var(--r-lg);overflow:hidden;background:var(--bg-muted)">
+          <img src="assets/plato-noodles.jpg" alt="Salteado de noodles" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div style="grid-column:span 2;border-radius:var(--r-lg);overflow:hidden;background:var(--bg-muted);position:relative">
+          <image-slot id="galeria-sala" shape="rect" src="uploads/bg_hero_charlatana.webp" style="position:absolute;inset:0;width:100%;height:100%;display:block" placeholder="Foto de la sala llena una noche de concierto"></image-slot>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ verMapa }}" hint-placeholder-val="{{ true }}">
+    <section id="llegar" style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) 0">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,48px);align-items:center">
+        <div>
+          <div data-rise="1" class="s-eyebrow">Cómo llegar</div>
+          <h2 data-rise="1" class="s-h2" style="margin:12px 0 20px;font-size:var(--fs-36)">PREVIA - Concierto - AFTER</h2>
+          <dl data-rise="1" style="margin:0;display:flex;flex-direction:column;gap:18px">
+            <div style="display:flex;gap:12px">
+              <span style="flex:none;width:26px;height:26px;border-radius:50%;background:var(--fg2);color:#fff;display:grid;place-items:center;font-size:var(--fs-12);font-weight:800">1</span>
+              <div>
+                <dt style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3)">Metro / Cercanías</dt>
+                <dd style="margin:6px 0 0;font-size:var(--fs-18);font-weight:600;color:var(--fg1)">Villaverde Alto</dd>
+                <dd style="margin:4px 0 0;font-size:var(--fs-14);color:var(--fg2)">Metro L3 · Cercanías C5</dd>
+                <dd style="margin:4px 0 0;font-size:var(--fs-14)"><a href="https://maps.app.goo.gl/bo1mfbEPtTxdf76V7" target="_blank" rel="noopener">Abrir en Google Maps →</a></dd>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px">
+              <span style="flex:none;width:26px;height:26px;border-radius:50%;background:var(--primary);color:#fff;display:grid;place-items:center;font-size:var(--fs-12);font-weight:800">2</span>
+              <div>
+                <dt style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3)">Restaurante La Charlatana</dt>
+                <dd style="margin:6px 0 0;font-size:var(--fs-18);font-weight:600;color:var(--fg1)">Av. Real de Pinto, 87</dd>
+                <dd style="margin:4px 0 0;font-size:var(--fs-14);color:var(--fg2)">Villaverde · 28021 Madrid</dd>
+                <dd style="margin:4px 0 0;font-size:var(--fs-14)"><a href="https://maps.app.goo.gl/fs5ddUUHrrUaU9b46" target="_blank" rel="noopener">Abrir en Google Maps →</a></dd>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px">
+              <span style="flex:none;width:26px;height:26px;border-radius:50%;background:var(--fg1);color:#fff;display:grid;place-items:center;font-size:var(--fs-12);font-weight:800">3</span>
+              <div>
+                <dt style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3)">El concierto</dt>
+                <dd style="margin:6px 0 0;font-size:var(--fs-18);font-weight:600;color:var(--fg1)">Estadio Shakira · Iberdrola Music</dd>
+                <dd style="margin:4px 0 0;font-size:var(--fs-14);color:var(--fg2)">Las mujeres ya no lloran · Residencia Europea</dd>
+                <dd style="margin:4px 0 0;font-size:var(--fs-14)"><a href="https://maps.app.goo.gl/fyaS6nXkLWqjgsEi6" target="_blank" rel="noopener">Abrir en Google Maps →</a></dd>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px">
+              <span style="flex:none;width:26px;height:26px"></span>
+              <div>
+                <dt style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3)">Horario las noches de concierto</dt>
+                <dd style="margin:6px 0 0;font-size:var(--fs-16);color:var(--fg2)">Cocina de 19:00 a 23:30 · Barra hasta el cierre</dd>
+              </div>
+            </div>
+          </dl>
+          <p class="s-caption" style="margin:22px 0 0">La dirección exacta y la hora de tu mesa van en el email de confirmación.</p>
+        </div>
+        <div style="border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);aspect-ratio:16/10;background:var(--bg-muted)">
+          <iframe title="Mapa: La Charlatana y el concierto de Shakira" src="mapa.html" style="width:100%;height:100%;border:0;display:block" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <section style="margin-top:clamp(56px,8vw,96px);background:var(--primary);color:var(--fg-on-primary);padding:clamp(56px,8vw,80px) clamp(20px,4vw,32px);position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.22) 1.5px, transparent 1.6px);background-size:26px 26px;opacity:0.45;pointer-events:none"></div>
+    <div style="position:relative;max-width:var(--maxw-page);margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px">
+      <div>
+        <h2 data-rise="1" style="margin:0;font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,3.6vw,var(--fs-48));line-height:1.02;letter-spacing:-0.02em">12 noches. 4 packs.<br>Una sola mesa libre a la vez.</h2>
+        <p style="margin:16px 0 0;font-size:var(--fs-18);color:rgba(255,255,255,0.9)">Reserva anticipada hasta agotar plazas.</p>
+      </div>
+      <a href="reservas.html" style="border:none;cursor:pointer;background:#fff;color:var(--primary);border-radius:var(--r-pill);padding:20px 38px;font-size:var(--fs-18);font-weight:800;letter-spacing:0.06em;text-transform:uppercase;box-shadow:0 12px 28px rgba(0,0,0,0.2);transition:transform var(--dur-fast) var(--ease-out)" style-hover="transform:translateY(-2px)" style-active="transform:scale(0.97)">Reserva tu mesa</a>
+    </div>
+  </section>
+
+  <footer style="position:relative;overflow:hidden;padding:clamp(48px,7vw,72px) clamp(20px,4vw,32px);background:#000">
+    <img src="uploads/bg_header_charlatana.webp" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:66% 32%;display:block">
+    <div style="position:absolute;inset:0;background:rgba(4,2,2,0.8)"></div>
+    <div style="position:relative;z-index:1;max-width:var(--maxw-page);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center">
+      <div style="display:flex;align-items:center;gap:22px">
+        <span aria-label="Facebook (próximamente)" title="Facebook (próximamente)" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.3);color:#fff;flex:none">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.86c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.87h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z"/></svg>
+        </span>
+        <span style="display:inline-flex;background:#fff;border-radius:var(--r-lg);padding:22px 34px">
+          <img src="assets/logo-charlatana.avif" alt="La Charlatana" style="height:clamp(64px,9vw,104px);width:auto;display:block">
+        </span>
+        <a href="https://www.instagram.com/gruopcharlatana" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.3);color:#fff;flex:none;transition:border-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)" style-hover="border-color:#fff;color:#fff">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+      <span style="font-size:var(--fs-12);font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6)">© 2026 Grupo La Charlatana · Madrid</span>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;verGaleria&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;},&quot;verMapa&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;}}">
+class Component extends DCLogic {
+  state = { menuOpen: false };
+
+  componentDidMount() {
+    const SEL = '[data-rise]:not([data-in]),[data-pop]:not([data-in]),[data-fade]:not([data-in])';
+    this._pending = () => document.querySelectorAll(SEL);
+    this._sweep = () => {
+      const nodes = this._pending();
+      if (!nodes.length) { this._stop(); return; }
+      const h = window.innerHeight || 800;
+      nodes.forEach(el => { if (el.getBoundingClientRect().top < h * 0.92) el.setAttribute('data-in', '1'); });
+    };
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => { this._raf = 0; this._sweep(); });
+    };
+    this._stop = () => {
+      window.removeEventListener('scroll', this._onScroll);
+      if (this._safety) { clearTimeout(this._safety); this._safety = 0; }
+    };
+    this._sweep();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._safety = setTimeout(() => { this._pending().forEach(el => el.setAttribute('data-in', '1')); }, 2500);
+
+    this._onKeydown = e => {
+      if (e.key === 'Escape' && this.state.menuOpen) this.setState({ menuOpen: false });
+    };
+    document.addEventListener('keydown', this._onKeydown);
+  }
+
+  componentDidUpdate() { if (this._sweep) this._sweep(); }
+
+  componentWillUnmount() {
+    if (this._stop) this._stop();
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._onKeydown) document.removeEventListener('keydown', this._onKeydown);
+  }
+
+  renderVals() {
+    return {
+      verGaleria: this.props.verGaleria ?? true,
+      verMapa: this.props.verMapa ?? true,
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false })
+    };
+  }
+}
+
+</script>
+</body>
+</html>

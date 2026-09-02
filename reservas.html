@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/samplia-design-system-3b8c391a-4304-4ac7-a11b-0dd4cb4af9a4/colors_and_type.css">
+<script src="_ds/samplia-design-system-3b8c391a-4304-4ac7-a11b-0dd4cb4af9a4/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<link rel="icon" href="assets/logo-charlatana.avif" type="image/avif">
+<link rel="apple-touch-icon" href="assets/logo-charlatana.avif">
+<title>Reserva tu mesa · La Charlatana</title>
+<style>
+  :root {
+    --samplia-red-700: #c73346; --samplia-red-100: #f1d8de;
+    --primary: #c73346; --primary-hover: #b32a3c; --primary-soft: #f1d8de;
+    --bg: #ffffff; --bg-muted: #f2f2f2;
+    --fg1: #000000; --fg2: #444444; --fg3: #999999; --fg-on-primary: #ffffff;
+    --border: #e6e6e6; --border-strong: #cccccc;
+    --font-display: "Raleway", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "Raleway", "Helvetica Neue", Arial, sans-serif;
+    --fs-12: .75rem; --fs-14: .875rem; --fs-16: 1rem; --fs-18: 1.125rem; --fs-20: 1.25rem;
+    --fs-24: 1.5rem; --fs-30: 1.875rem; --fs-36: 2.25rem; --fs-48: 3rem;
+    --r-md: 8px; --r-lg: 12px; --r-xl: 20px; --r-pill: 999px;
+    --shadow-sm: 0 2px 6px rgba(15,15,15,.06), 0 1px 2px rgba(15,15,15,.04);
+    --shadow-md: 0 6px 16px rgba(15,15,15,.08), 0 2px 4px rgba(15,15,15,.04);
+    --shadow-lg: 0 16px 40px rgba(15,15,15,.10), 0 4px 8px rgba(15,15,15,.04);
+    --shadow-brand: 0 12px 28px rgba(199,51,70,.22);
+    --ease-out: cubic-bezier(.22,1,.36,1); --ease-std: cubic-bezier(.4,0,.2,1);
+    --dur-fast: 120ms; --dur-base: 220ms;
+    --maxw-page: 1240px;
+  }
+  img, iframe { max-width: 100%; }
+  body { margin: 0; background: var(--bg) url("assets/bg-textura.jpg") repeat center / 1200px auto; font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  a { color: var(--primary); text-decoration: none; }
+  a:hover { color: var(--primary-hover); }
+  input, select, textarea, button { font-family: var(--font-body); }
+  input:focus, select:focus, textarea:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
+  [data-rise] { opacity: 0; transform: translateY(16px); transition: opacity 620ms var(--ease-out), transform 620ms var(--ease-out); }
+  [data-rise][data-in="1"] { opacity: 1; transform: none; }
+  [data-fade] { opacity: 0; transition: opacity 480ms var(--ease-out); }
+  [data-fade][data-in="1"] { opacity: 1; }
+  [data-pop] { opacity: 0; transform: scale(0.94); transition: opacity 480ms var(--ease-out), transform 480ms var(--ease-out); }
+  [data-pop][data-in="1"] { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { [data-rise], [data-pop], [data-fade] { opacity: 1 !important; transform: none !important; transition: none !important; } }
+  @media print { [data-rise], [data-pop], [data-fade] { opacity: 1 !important; transform: none !important; transition: none !important; } }
+  @media (max-width: 1180px) {
+    [data-grid="packs"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  }
+  @media (max-width: 720px) {
+    [data-grid="fechas"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  }
+  @media (max-width: 520px) {
+    [data-grid="packs"], [data-grid="fechas"] { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 560px) {
+    [data-header] { padding-left: 14px !important; padding-right: 14px !important; gap: 8px !important; }
+    [data-brand] { gap: 8px !important; }
+    [data-logo] { height: 26px !important; }
+    [data-divider] { height: 18px !important; }
+    [data-back] { font-size: 12px !important; }
+  }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:url('assets/bg-textura.jpg') repeat center / 1200px auto, var(--bg);color:var(--fg1)">
+
+  <header data-header="1" style="position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:16px clamp(16px,3vw,32px);background:rgba(12,8,8,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08)">
+    <a href="index.html" data-brand="1" style="display:flex;align-items:center;gap:14px;min-width:0">
+      <img data-logo="1" src="assets/logo-charlatana.avif" alt="La Charlatana" style="height:36px;width:auto;display:block;flex:none">
+      <span data-divider="1" style="width:1px;height:26px;background:rgba(255,255,255,0.18);flex:none"></span>
+      <span class="s-caption" style="text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.62);white-space:nowrap">Madrid 2026</span>
+    </a>
+    <a data-back="1" href="index.html" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);white-space:nowrap">← Volver a la web</a>
+  </header>
+
+  <section style="position:relative;overflow:hidden;background:var(--primary);color:#fff;padding:clamp(48px,8vw,72px) clamp(20px,4vw,32px)">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.22) 1.5px, transparent 1.6px);background-size:26px 26px;opacity:0.45;pointer-events:none"></div>
+    <div style="position:relative;max-width:var(--maxw-page);margin:0 auto;text-align:center">
+      <div class="s-eyebrow" style="color:#fff">Grupo La Charlatana</div>
+      <h1 style="margin:12px 0 0;font-family:var(--font-display);font-weight:900;font-style:italic;font-size:clamp(2rem,4.5vw,3.5rem);letter-spacing:-0.03em">Reserva tu mesa</h1>
+      <p style="margin:14px auto 0;max-width:52ch;font-size:var(--fs-18);color:rgba(255,255,255,0.92)">Elige tu noche, elige tu pack y siéntate: nosotros ponemos la mesa, la cerveza y el ruido.</p>
+    </div>
+  </section>
+
+  <section id="fechas" style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) 24px">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:20px;margin-bottom:44px;text-align:center">
+      <div>
+        <div data-rise="1" class="s-eyebrow">Paso 1 · Elige tu noche</div>
+        <h2 data-rise="1" class="s-h2" style="margin:14px 0 0;font-size:clamp(2.25rem,5vw,3.75rem);font-weight:900;letter-spacing:-0.03em">Las 12 noches</h2>
+        <p data-rise="1" class="s-body" style="margin:14px auto 0;max-width:52ch">Cada botón es una noche de concierto. Pulsa la tuya y se rellenará sola en el formulario de reserva.</p>
+      </div>
+      <div style="font-size:var(--fs-14);font-weight:600;color:var(--fg2);border:1px solid var(--border);border-radius:var(--r-pill);padding:10px 18px">Tu noche: {{ fechaSelTxt }}</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px" data-grid="fechas">
+      <div style="grid-column:1 / -1;font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg3)">Semana 1 · Septiembre</div>
+      <button data-fade="1" type="button" onClick="{{ d0on }}" style="cursor:pointer;text-align:left;padding:20px;border-radius:var(--r-lg);background:{{ d0bg }};color:{{ d0fg }};border:1.5px solid {{ d0bd }};transition:transform var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px);border-color:var(--primary);box-shadow:var(--shadow-md)">
+        <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65">Viernes</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);margin-top:6px">18 SEP</div>
+      </button>
+      <button data-fade="1" type="button" onClick="{{ d1on }}" style="cursor:pointer;text-align:left;padding:20px;border-radius:var(--r-lg);background:{{ d1bg }};color:{{ d1fg }};border:1.5px solid {{ d1bd }};transition:transform var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px);border-color:var(--primary);box-shadow:var(--shadow-md)">
+        <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65">Sábado</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);margin-top:6px">19 SEP</div>
+      </button>
+      <button data-fade="1" type="button" onClick="{{ d2on }}" style="cursor:pointer;text-align:left;padding:20px;border-radius:var(--r-lg);background:{{ d2bg }};color:{{ d2fg }};border:1.5px solid {{ d2bd }};transition:transform var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px);border-color:var(--primary);box-shadow:var(--shadow-md)">
+        <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65">Domingo</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);margin-top:6px">20 SEP</div>
+      </button>
+
+      <div style="grid-column:1 / -1;margin-top:16px;font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg3)">Semana 2 · Septiembre</div>
+      <button data-fade="1" type="button" onClick="{{ d3on }}" style="cursor:pointer;text-align:left;padding:20px;border-radius:var(--r-lg);background:{{ d3bg }};color:{{ d3fg }};border:1.5px solid {{ d3bd }};transition:transform var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px);border-color:var(--primary);box-shadow:var(--shadow-md)">
+        <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65">Viernes</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);margin-top:6px">25 SEP</div>
+      </button>
+      <button data-fade="1" type="button" onClick="{{ d4on }}" style="cursor:pointer;text-align:left;padding:20px;border-radius:var(--r-lg);background:{{ d4bg }};color:{{ d4fg }};border:1.5px solid {{ d4bd }};transition:transform var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px);border-color:var(--primary);box-shadow:var(--shadow-md)">
+        <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65">Sábado</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);margin-top:6px">26 SEP</div>
+      </button>
+      <button data-fade="1" type="button" onClick="{{ d5on }}" style="cursor:pointer;text-align:left;padding:20px;border-radius:var(--r-lg);background:{{ d5bg }};color:{{ d5fg }};border:1.5px solid {{ d5bd }};transition:transform var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px);border-color:var(--primary);box-shadow:var(--shadow-md)">
+        <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65">Domingo</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);margin-top:6px">27 SEP</div>
+      </button>
+
+      <div style="grid-column:1 / -1;margin-top:16px;font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg3)">Semana 3 · Octubre</div>
+      <button data-fade="1" type="button" onClick="{{ d6on }}" style="cursor:pointer;text-align:left;padding:20px;border-radius:var(--r-lg);background:{{ d6bg }};color:{{ d6fg }};border:1.5px solid {{ d6bd }};transition:transform var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px);border-color:var(--primary);box-shadow:var(--shadow-md)">
+        <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65">Viernes</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);margin-top:6px">2 OCT</div>
+      </button>
+      <button data-fade="1" type="button" onClick="{{ d7on }}" style="cursor:pointer;text-align:left;padding:20px;border-radius:var(--r-lg);background:{{ d7bg }};color:{{ d7fg }};border:1.5px solid {{ d7bd }};transition:transform var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px);border-color:var(--primary);box-shadow:var(--shadow-md)">
+        <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65">Sábado</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);margin-top:6px">3 OCT</div>
+      </button>
+      <button data-fade="1" type="button" onClick="{{ d8on }}" style="cursor:pointer;text-align:left;padding:20px;border-radius:var(--r-lg);background:{{ d8bg }};color:{{ d8fg }};border:1.5px solid {{ d8bd }};transition:transform var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px);border-color:var(--primary);box-shadow:var(--shadow-md)">
+        <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65">Domingo</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);margin-top:6px">4 OCT</div>
+      </button>
+
+      <div style="grid-column:1 / -1;margin-top:16px;font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg3)">Semana 4 · Octubre</div>
+      <button data-fade="1" type="button" onClick="{{ d9on }}" style="cursor:pointer;text-align:left;padding:20px;border-radius:var(--r-lg);background:{{ d9bg }};color:{{ d9fg }};border:1.5px solid {{ d9bd }};transition:transform var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px);border-color:var(--primary);box-shadow:var(--shadow-md)">
+        <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65">Viernes</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);margin-top:6px">9 OCT</div>
+      </button>
+      <button data-fade="1" type="button" onClick="{{ d10on }}" style="cursor:pointer;text-align:left;padding:20px;border-radius:var(--r-lg);background:{{ d10bg }};color:{{ d10fg }};border:1.5px solid {{ d10bd }};transition:transform var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px);border-color:var(--primary);box-shadow:var(--shadow-md)">
+        <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65">Sábado</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);margin-top:6px">10 OCT</div>
+      </button>
+      <button data-fade="1" type="button" onClick="{{ d11on }}" style="cursor:pointer;text-align:left;padding:20px;border-radius:var(--r-lg);background:{{ d11bg }};color:{{ d11fg }};border:1.5px solid {{ d11bd }};transition:transform var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px);border-color:var(--primary);box-shadow:var(--shadow-md)">
+        <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65">Domingo</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);margin-top:6px">11 OCT</div>
+      </button>
+    </div>
+  </section>
+
+  <section id="packs" style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) 0">
+    <div style="margin-bottom:48px;text-align:center">
+      <div data-rise="1" class="s-eyebrow">Paso 2 · Elige tu pack</div>
+      <h2 data-rise="1" class="s-h2" style="margin:14px 0 0;font-size:clamp(2.25rem,5vw,3.75rem);font-weight:900;letter-spacing:-0.03em">Cuatro formas de cenar</h2>
+      <p data-rise="1" class="s-body" style="margin:14px auto 0;max-width:56ch">Precios orientativos por persona, salvo el Pack para 2. Bebida incluida en todos.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px" data-grid="packs">
+
+      <div data-pop="1" style="display:flex;flex-direction:column;border-radius:var(--r-lg);overflow:hidden;background:#fff;border:1.5px solid {{ p0bd }};box-shadow:var(--shadow-sm);transition:transform var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px)">
+        <div style="position:relative;aspect-ratio:16/11;overflow:hidden;background:var(--bg-muted)">
+          <img src="assets/plato-pollo.jpg" alt="Pollo asado con patatas y pico de gallo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+          <span style="position:absolute;top:12px;left:12px;background:#fff;color:var(--fg1);border-radius:var(--r-pill);padding:6px 14px;font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Sabor colombiano</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;padding:20px;flex:1">
+          <h3 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);letter-spacing:-0.01em">Pack Colombia</h3>
+          <div style="display:flex;align-items:baseline;gap:6px">
+            <span style="font-family:var(--font-display);font-weight:900;font-size:var(--fs-30);color:var(--primary)">19,90 €</span>
+            <span style="font-size:var(--fs-12);font-weight:600;color:var(--fg3)">/ persona</span>
+          </div>
+          <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;flex:1">
+            <li style="display:flex;gap:10px;font-size:var(--fs-14);line-height:1.45;color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Selección de producto colombiano</li>
+            <li style="display:flex;gap:10px;font-size:var(--fs-14);line-height:1.45;color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Acompañamiento a elegir</li>
+            <li style="display:flex;gap:10px;font-size:var(--fs-14);line-height:1.45;color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Cerveza de importación</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;border:1.5px solid var(--border);border-radius:var(--r-pill);padding:6px 8px">
+            <button type="button" onClick="{{ p0dec }}" aria-label="Quitar uno" style="cursor:pointer;width:38px;height:38px;flex:none;border-radius:50%;border:none;background:var(--bg-muted);color:var(--fg1);font-size:var(--fs-20);font-weight:700;line-height:1;transition:background var(--dur-fast) var(--ease-out)" style-hover="background:var(--primary-soft);color:var(--primary)" style-active="transform:scale(0.94)">−</button>
+            <span style="font-size:var(--fs-14);font-weight:700;color:{{ p0fg }};text-align:center;flex:1">{{ p0txt }}</span>
+            <button type="button" onClick="{{ p0inc }}" aria-label="Añadir uno" style="cursor:pointer;width:38px;height:38px;flex:none;border-radius:50%;border:none;background:var(--primary);color:#fff;font-size:var(--fs-20);font-weight:700;line-height:1;transition:background var(--dur-fast) var(--ease-out)" style-hover="background:var(--primary-hover)" style-active="transform:scale(0.94)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div data-pop="1" style="display:flex;flex-direction:column;border-radius:var(--r-lg);overflow:hidden;background:#fff;border:1.5px solid {{ p1bd }};box-shadow:var(--shadow-sm);transition:transform var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px)">
+        <div style="position:relative;aspect-ratio:16/11;overflow:hidden;background:var(--bg-muted)">
+          <image-slot id="pack-charlatana" shape="rect" style="position:absolute;inset:0;width:100%;height:100%;display:block" placeholder="Foto de la hamburguesa Charlatana"></image-slot>
+          <span style="position:absolute;top:12px;left:12px;background:var(--primary);color:#fff;border-radius:var(--r-pill);padding:6px 14px;font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;pointer-events:none">El más pedido</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;padding:20px;flex:1">
+          <h3 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);letter-spacing:-0.01em">Pack Charlatana</h3>
+          <div style="display:flex;align-items:baseline;gap:6px">
+            <span style="font-family:var(--font-display);font-weight:900;font-size:var(--fs-30);color:var(--primary)">24,90 €</span>
+            <span style="font-size:var(--fs-12);font-weight:600;color:var(--fg3)">/ persona</span>
+          </div>
+          <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;flex:1">
+            <li style="display:flex;gap:10px;font-size:var(--fs-14);line-height:1.45;color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Hamburguesa de la casa</li>
+            <li style="display:flex;gap:10px;font-size:var(--fs-14);line-height:1.45;color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Patatas</li>
+            <li style="display:flex;gap:10px;font-size:var(--fs-14);line-height:1.45;color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>2 cervezas</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;border:1.5px solid var(--border);border-radius:var(--r-pill);padding:6px 8px">
+            <button type="button" onClick="{{ p1dec }}" aria-label="Quitar uno" style="cursor:pointer;width:38px;height:38px;flex:none;border-radius:50%;border:none;background:var(--bg-muted);color:var(--fg1);font-size:var(--fs-20);font-weight:700;line-height:1;transition:background var(--dur-fast) var(--ease-out)" style-hover="background:var(--primary-soft);color:var(--primary)" style-active="transform:scale(0.94)">−</button>
+            <span style="font-size:var(--fs-14);font-weight:700;color:{{ p1fg }};text-align:center;flex:1">{{ p1txt }}</span>
+            <button type="button" onClick="{{ p1inc }}" aria-label="Añadir uno" style="cursor:pointer;width:38px;height:38px;flex:none;border-radius:50%;border:none;background:var(--primary);color:#fff;font-size:var(--fs-20);font-weight:700;line-height:1;transition:background var(--dur-fast) var(--ease-out)" style-hover="background:var(--primary-hover)" style-active="transform:scale(0.94)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div data-pop="1" style="display:flex;flex-direction:column;border-radius:var(--r-lg);overflow:hidden;background:#fff;border:1.5px solid {{ p2bd }};box-shadow:var(--shadow-sm);transition:transform var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px)">
+        <div style="position:relative;aspect-ratio:16/11;overflow:hidden;background:var(--bg-muted)">
+          <image-slot id="pack-para-2" shape="rect" style="position:absolute;inset:0;width:100%;height:100%;display:block" placeholder="Foto de las 2 hamburguesas + ración"></image-slot>
+          <span style="position:absolute;top:12px;left:12px;background:#fff;color:var(--fg1);border-radius:var(--r-pill);padding:6px 14px;font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;pointer-events:none">Para compartir</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;padding:20px;flex:1">
+          <h3 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);letter-spacing:-0.01em">Pack para 2</h3>
+          <div style="display:flex;align-items:baseline;gap:6px">
+            <span style="font-family:var(--font-display);font-weight:900;font-size:var(--fs-30);color:var(--primary)">44,90 €</span>
+            <span style="font-size:var(--fs-12);font-weight:600;color:var(--fg3)">/ 2 personas</span>
+          </div>
+          <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;flex:1">
+            <li style="display:flex;gap:10px;font-size:var(--fs-14);line-height:1.45;color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>2 hamburguesas</li>
+            <li style="display:flex;gap:10px;font-size:var(--fs-14);line-height:1.45;color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Ración para compartir</li>
+            <li style="display:flex;gap:10px;font-size:var(--fs-14);line-height:1.45;color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>4 cervezas</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;border:1.5px solid var(--border);border-radius:var(--r-pill);padding:6px 8px">
+            <button type="button" onClick="{{ p2dec }}" aria-label="Quitar uno" style="cursor:pointer;width:38px;height:38px;flex:none;border-radius:50%;border:none;background:var(--bg-muted);color:var(--fg1);font-size:var(--fs-20);font-weight:700;line-height:1;transition:background var(--dur-fast) var(--ease-out)" style-hover="background:var(--primary-soft);color:var(--primary)" style-active="transform:scale(0.94)">−</button>
+            <span style="font-size:var(--fs-14);font-weight:700;color:{{ p2fg }};text-align:center;flex:1">{{ p2txt }}</span>
+            <button type="button" onClick="{{ p2inc }}" aria-label="Añadir uno" style="cursor:pointer;width:38px;height:38px;flex:none;border-radius:50%;border:none;background:var(--primary);color:#fff;font-size:var(--fs-20);font-weight:700;line-height:1;transition:background var(--dur-fast) var(--ease-out)" style-hover="background:var(--primary-hover)" style-active="transform:scale(0.94)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div data-pop="1" style="display:flex;flex-direction:column;border-radius:var(--r-lg);overflow:hidden;background:#fff;border:1.5px solid {{ p3bd }};box-shadow:var(--shadow-sm);transition:transform var(--dur-base) var(--ease-out)" style-hover="transform:translateY(-4px)">
+        <div style="position:relative;aspect-ratio:16/11;overflow:hidden;background:var(--bg-muted)">
+          <img src="assets/plato-noodles.jpg" alt="Salteado de noodles" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+          <span style="position:absolute;top:12px;left:12px;background:var(--primary-soft);color:var(--primary);border-radius:var(--r-pill);padding:6px 14px;font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">+ Beauty Corner</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;padding:20px;flex:1">
+          <h3 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:var(--fs-24);letter-spacing:-0.01em">Pack Glam</h3>
+          <div style="display:flex;align-items:baseline;gap:6px">
+            <span style="font-family:var(--font-display);font-weight:900;font-size:var(--fs-30);color:var(--primary)">29,90 €</span>
+            <span style="font-size:var(--fs-12);font-weight:600;color:var(--fg3)">/ persona</span>
+          </div>
+          <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;flex:1">
+            <li style="display:flex;gap:10px;font-size:var(--fs-14);line-height:1.45;color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Comida a elegir</li>
+            <li style="display:flex;gap:10px;font-size:var(--fs-14);line-height:1.45;color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Bebida incluida</li>
+            <li style="display:flex;gap:10px;font-size:var(--fs-14);line-height:1.45;color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Acceso al Beauty Corner</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;border:1.5px solid var(--border);border-radius:var(--r-pill);padding:6px 8px">
+            <button type="button" onClick="{{ p3dec }}" aria-label="Quitar uno" style="cursor:pointer;width:38px;height:38px;flex:none;border-radius:50%;border:none;background:var(--bg-muted);color:var(--fg1);font-size:var(--fs-20);font-weight:700;line-height:1;transition:background var(--dur-fast) var(--ease-out)" style-hover="background:var(--primary-soft);color:var(--primary)" style-active="transform:scale(0.94)">−</button>
+            <span style="font-size:var(--fs-14);font-weight:700;color:{{ p3fg }};text-align:center;flex:1">{{ p3txt }}</span>
+            <button type="button" onClick="{{ p3inc }}" aria-label="Añadir uno" style="cursor:pointer;width:38px;height:38px;flex:none;border-radius:50%;border:none;background:var(--primary);color:#fff;font-size:var(--fs-20);font-weight:700;line-height:1;transition:background var(--dur-fast) var(--ease-out)" style-hover="background:var(--primary-hover)" style-active="transform:scale(0.94)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="s-caption" style="margin:20px 0 0">{{ notaPrecios }}</p>
+  </section>
+
+  <section id="reserva" style="margin-top:clamp(56px,8vw,96px);background:#000 url('assets/bg-textura.jpg') repeat center / 1200px auto;background-blend-mode:multiply;padding:clamp(56px,8vw,88px) clamp(20px,4vw,32px)">
+    <div style="max-width:var(--maxw-page);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(32px,4vw,56px);align-items:start">
+      <div>
+        <div data-rise="1" class="s-eyebrow" style="color:var(--primary-soft)">Paso 3 · Reserva</div>
+        <h2 data-rise="1" class="s-h2" style="margin:12px 0 0;font-size:var(--fs-36);color:#fff">Tu mesa ya está casi lista</h2>
+        <p style="margin:18px 0 0;font-size:var(--fs-16);font-weight:700;color:#fff">Revisa que esté todo en orden:</p>
+        <p class="s-body" style="margin:14px 0 0;max-width:44ch;color:rgba(255,255,255,0.82)">Te confirmamos por email en menos de 24 h. Sin pago ahora: la reserva se abona en sala la noche del concierto.</p>
+        <div style="margin-top:32px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;gap:16px;background:rgba(255,255,255,0.07);border-radius:var(--r-md);padding:16px 18px;border:1px solid rgba(255,255,255,0.22)">
+            <span style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.72)">Noche</span>
+            <span style="font-size:var(--fs-14);font-weight:800;color:#fff">{{ fechaSelTxt }}</span>
+          </div>
+          <sc-for list="{{ lineas }}" as="l" hint-placeholder-count="2">
+            <div style="display:flex;justify-content:space-between;gap:16px;background:rgba(255,255,255,0.07);border-radius:var(--r-md);padding:16px 18px;border:1px solid rgba(255,255,255,0.22)">
+              <span style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.72)">{{ l.etiqueta }}</span>
+              <span style="font-size:var(--fs-14);font-weight:800;color:#fff">{{ l.importe }}</span>
+            </div>
+          </sc-for>
+          <div style="display:flex;justify-content:space-between;gap:16px;background:rgba(255,255,255,0.07);border-radius:var(--r-md);padding:16px 18px;border:1px solid rgba(255,255,255,0.22)">
+            <span style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.72)">Comensales</span>
+            <span style="font-size:var(--fs-14);font-weight:800;color:#fff">{{ comensalesTxt }}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;gap:16px;background:rgba(255,255,255,0.07);border-radius:var(--r-md);padding:16px 18px;border:1px solid rgba(255,255,255,0.22)">
+            <span style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.72)">Total estimado</span>
+            <span style="font-size:var(--fs-14);font-weight:800;color:var(--primary-soft)">{{ totalTxt }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-fade="1" style="background:#fff;border-radius:var(--r-xl);padding:32px;box-shadow:var(--shadow-md)">
+          <form onSubmit="{{ onSubmit }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+            <p style="margin:0;grid-column:1 / -1;font-size:var(--fs-16);font-weight:700;color:var(--fg1)">Rellena tus datos:</p>
+            <label style="display:flex;flex-direction:column;gap:8px;grid-column:1 / -1">
+              <span style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg2)">Nombre y apellidos</span>
+              <input ref="{{ refNombre }}" type="text" required="true" placeholder="Tu nombre" style="border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px;font-size:var(--fs-16);color:var(--fg1)">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg2)">Email</span>
+              <input ref="{{ refEmail }}" type="email" required="true" placeholder="tu@email.com" style="border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px;font-size:var(--fs-16);color:var(--fg1)">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg2)">Teléfono</span>
+              <input ref="{{ refTel }}" type="tel" required="true" placeholder="600 000 000" style="border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px;font-size:var(--fs-16);color:var(--fg1)">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg2)">Noche</span>
+              <select value="{{ fechaVal }}" onChange="{{ onFechaChange }}" style="border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px;font-size:var(--fs-16);color:var(--fg1);background:#fff">
+                <option value="">Elige noche</option>
+                <option value="18 SEP">Vie 18 SEP</option>
+                <option value="19 SEP">Sáb 19 SEP</option>
+                <option value="20 SEP">Dom 20 SEP</option>
+                <option value="25 SEP">Vie 25 SEP</option>
+                <option value="26 SEP">Sáb 26 SEP</option>
+                <option value="27 SEP">Dom 27 SEP</option>
+                <option value="2 OCT">Vie 2 OCT</option>
+                <option value="3 OCT">Sáb 3 OCT</option>
+                <option value="4 OCT">Dom 4 OCT</option>
+                <option value="9 OCT">Vie 9 OCT</option>
+                <option value="10 OCT">Sáb 10 OCT</option>
+                <option value="11 OCT">Dom 11 OCT</option>
+              </select>
+            </label>
+            <div style="grid-column:1 / -1;display:flex;flex-direction:column;gap:10px;border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;background:var(--bg-muted)">
+              <span style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg2)">Tus packs</span>
+              <sc-for list="{{ lineasForm }}" as="l" hint-placeholder-count="2">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+                  <span style="font-size:var(--fs-14);font-weight:600;color:var(--fg1)">{{ l.etiqueta }}</span>
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <button type="button" onClick="{{ l.dec }}" aria-label="Quitar uno" style="cursor:pointer;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:#fff;color:var(--fg1);font-size:var(--fs-16);font-weight:700;line-height:1" style-hover="border-color:var(--primary);color:var(--primary)">−</button>
+                    <button type="button" onClick="{{ l.inc }}" aria-label="Añadir uno" style="cursor:pointer;width:30px;height:30px;border-radius:50%;border:none;background:var(--primary);color:#fff;font-size:var(--fs-16);font-weight:700;line-height:1" style-hover="background:var(--primary-hover)">+</button>
+                  </span>
+                </div>
+              </sc-for>
+              <sc-if value="{{ sinPacks }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:0;font-size:var(--fs-14);color:var(--fg2)">Elige tus packs en el paso 2 — puedes combinar menús distintos para la misma noche.</p>
+              </sc-if>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:8px;grid-column:1 / -1">
+              <span style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg2)">Algo que debamos saber</span>
+              <textarea ref="{{ refNota }}" rows="3" placeholder="Alergias, celebraciones, silla de bebé…" style="border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px;font-size:var(--fs-16);color:var(--fg1);resize:vertical"></textarea>
+            </label>
+            <button type="submit" style="grid-column:1 / -1;border:none;cursor:pointer;background:var(--primary);color:var(--fg-on-primary);border-radius:var(--r-pill);padding:18px 24px;font-size:var(--fs-16);font-weight:800;letter-spacing:0.06em;text-transform:uppercase;box-shadow:var(--shadow-brand);transition:background var(--dur-fast) var(--ease-out)" style-hover="background:var(--primary-hover)" style-active="transform:scale(0.97)">{{ ctaTexto }}</button>
+            <p class="s-caption" style="margin:0;grid-column:1 / -1">Plazas limitadas por noche. Al enviar aceptas que te contactemos para confirmar la mesa.</p>
+          </form>
+      </div>
+    </div>
+  </section>
+
+  <footer style="position:relative;overflow:hidden;padding:clamp(48px,7vw,72px) clamp(20px,4vw,32px);background:#000">
+    <img src="uploads/bg_header_charlatana.webp" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:66% 32%;display:block">
+    <div style="position:absolute;inset:0;background:rgba(4,2,2,0.8)"></div>
+    <div style="position:relative;z-index:1;max-width:var(--maxw-page);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center">
+      <span style="display:inline-flex;background:#fff;border-radius:var(--r-lg);padding:22px 34px">
+        <img src="assets/logo-charlatana.avif" alt="La Charlatana" style="height:clamp(64px,9vw,104px);width:auto;display:block">
+      </span>
+      <a href="index.html" style="font-size:var(--fs-14);font-weight:700;color:#fff">← Volver a la web</a>
+      <span style="font-size:var(--fs-12);font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6)">© 2026 Grupo La Charlatana · Madrid</span>
+    </div>
+  </footer>
+
+  <sc-if value="{{ enviado }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="true" aria-labelledby="modal-title" onClick="{{ onBackdropClick }}" style="position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(10,4,4,0.72);backdrop-filter:blur(6px)">
+      <div style="position:relative;width:100%;max-width:460px;max-height:calc(100vh - 40px);overflow-y:auto;background:#fff;border-radius:var(--r-xl);padding:36px 32px;box-shadow:var(--shadow-lg)">
+        <button type="button" onClick="{{ cerrarModal }}" aria-label="Cerrar" style="position:absolute;top:16px;right:16px;cursor:pointer;width:34px;height:34px;border-radius:50%;border:none;background:var(--bg-muted);color:var(--fg1);font-size:var(--fs-18);line-height:1" style-hover="background:var(--primary-soft);color:var(--primary)">×</button>
+        <div style="width:52px;height:52px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--fs-24);font-weight:800">✓</div>
+        <h3 id="modal-title" class="s-h3" style="margin:18px 0 0;font-size:var(--fs-30)">Mesa apuntada, {{ nombreEnviado }}</h3>
+        <p class="s-body" style="margin:10px 0 0">Te hemos reservado {{ resumenTxt }}. Recibirás la confirmación en {{ emailEnviado }} en menos de 24 h.</p>
+        <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px;border-top:1px dashed var(--border-strong);padding-top:20px">
+          <div style="display:flex;justify-content:space-between;gap:16px">
+            <span style="font-size:var(--fs-14);color:var(--fg2)">Noche</span>
+            <span style="font-size:var(--fs-14);font-weight:700;color:var(--fg1)">{{ fechaEnviada }}</span>
+          </div>
+          <sc-for list="{{ lineasEnviadas }}" as="l" hint-placeholder-count="1">
+            <div style="display:flex;justify-content:space-between;gap:16px">
+              <span style="font-size:var(--fs-14);color:var(--fg2)">{{ l.etiqueta }}</span>
+              <span style="font-size:var(--fs-14);font-weight:700;color:var(--fg1)">{{ l.importe }}</span>
+            </div>
+          </sc-for>
+          <div style="display:flex;justify-content:space-between;gap:16px">
+            <span style="font-size:var(--fs-14);color:var(--fg2)">Comensales</span>
+            <span style="font-size:var(--fs-14);font-weight:700;color:var(--fg1)">{{ comensalesEnviados }}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--border);padding-top:10px;margin-top:4px">
+            <span style="font-size:var(--fs-14);font-weight:700;color:var(--fg1)">Total estimado</span>
+            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">{{ totalEnviado }}</span>
+          </div>
+        </div>
+        <p class="s-caption" style="margin:18px 0 0">¿Quieres guardar una copia? Pulsa el botón para enviarte este resumen por email.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px">
+          <a href="{{ mailtoHref }}" target="_blank" rel="noopener" style="cursor:pointer;text-decoration:none;text-align:center;flex:1;background:var(--primary);color:#fff;border-radius:var(--r-pill);padding:13px 20px;font-size:var(--fs-14);font-weight:700" style-hover="background:var(--primary-hover)">Enviar por email</a>
+          <button type="button" onClick="{{ otraReserva }}" style="cursor:pointer;flex:1;background:transparent;border:1.5px solid var(--fg1);color:var(--fg1);border-radius:var(--r-pill);padding:13px 20px;font-size:var(--fs-14);font-weight:700">Hacer otra reserva</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;ctaTexto&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Reserva tu mesa&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Copy&quot;},&quot;notaPrecios&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Precios orientativos, IVA incluido. La carta definitiva se confirma con tu reserva.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Copy&quot;}}">
+const FECHAS = ["18 SEP","19 SEP","20 SEP","25 SEP","26 SEP","27 SEP","2 OCT","3 OCT","4 OCT","9 OCT","10 OCT","11 OCT"];
+const PACKS = [
+  { n: "Pack Colombia", p: 19.9, porPersona: true },
+  { n: "Pack Charlatana", p: 24.9, porPersona: true },
+  { n: "Pack para 2", p: 44.9, porPersona: false },
+  { n: "Pack Glam", p: 29.9, porPersona: true }
+];
+// URL del Web App de Apps Script publicado sobre el Google Sheet de reservas.
+const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbw0F3wAcnTU4mgHVSPPoLNjxuOhZ6yZxA-R1L6mgkbdLGQtNMSgVedJ1hVLgY-MV0V7-g/exec";
+
+class Component extends DCLogic {
+  state = { fecha: "", qty: [0, 0, 0, 0], enviado: false, datos: null };
+
+  constructor(props) {
+    super(props);
+    this.refNombre = React.createRef();
+    this.refEmail = React.createRef();
+    this.refTel = React.createRef();
+    this.refNota = React.createRef();
+  }
+
+  incPack(i) {
+    const qty = this.state.qty.slice();
+    qty[i] = Math.min(20, qty[i] + 1);
+    this.setState({ qty });
+  }
+
+  decPack(i) {
+    const qty = this.state.qty.slice();
+    qty[i] = Math.max(0, qty[i] - 1);
+    this.setState({ qty });
+  }
+
+  lineas() {
+    return PACKS
+      .map((p, i) => ({ p, i, q: this.state.qty[i] }))
+      .filter(l => l.q > 0)
+      .map(l => ({
+        etiqueta: l.q + "× " + l.p.n,
+        importe: (l.p.p * l.q).toFixed(2).replace(".", ",") + " €",
+        dec: () => this.decPack(l.i),
+        inc: () => this.incPack(l.i)
+      }));
+  }
+
+  comensales() {
+    return PACKS.reduce((n, p, i) => n + this.state.qty[i] * (p.porPersona ? 1 : 2), 0);
+  }
+
+  comensalesLabel(n) {
+    return n + " comensal" + (n === 1 ? "" : "es");
+  }
+
+  buildMailtoHref(datos) {
+    if (!datos) return "mailto:";
+    const subject = "Tu reserva en La Charlatana – " + datos.fecha;
+    const lines = [
+      "Resumen de tu reserva en La Charlatana",
+      "",
+      "Nombre: " + datos.nombre,
+      "Email: " + datos.email,
+      "Teléfono: " + datos.telefono,
+      "Noche: " + datos.fecha,
+      "",
+      "Packs:"
+    ].concat(
+      datos.lineas.length ? datos.lineas.map(l => "  - " + l.etiqueta + " (" + l.importe + ")") : ["  (ninguno)"]
+    ).concat([
+      "",
+      "Comensales: " + datos.comensales,
+      "Total estimado: " + datos.total
+    ]);
+    if (datos.nota) lines.push("", "Nota: " + datos.nota);
+    return "mailto:" + (datos.email || "") + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+  }
+
+  sendToSheet(datos) {
+    if (!SHEET_WEBAPP_URL) return;
+    const payload = {
+      fecha: datos.fecha,
+      nombre: datos.nombre,
+      email: datos.email,
+      telefono: datos.telefono,
+      packs: datos.lineas.map(l => l.etiqueta).join(", "),
+      comensales: datos.comensales,
+      total: datos.total,
+      nota: datos.nota || ""
+    };
+    // no-cors + text/plain: evita el preflight CORS que el Web App de Apps
+    // Script no responde bien; doPost lee igualmente e.postData.contents.
+    fetch(SHEET_WEBAPP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).catch(() => {});
+  }
+
+  lockScroll(lock) {
+    if (lock) {
+      const barW = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = "hidden";
+      if (barW > 0) document.body.style.paddingRight = barW + "px";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
+  }
+
+  componentDidMount() {
+    const SEL = '[data-rise]:not([data-in]),[data-pop]:not([data-in]),[data-fade]:not([data-in])';
+    this._pending = () => document.querySelectorAll(SEL);
+    this._sweep = () => {
+      const nodes = this._pending();
+      if (!nodes.length) { this._stop(); return; }
+      const h = window.innerHeight || 800;
+      nodes.forEach(el => { if (el.getBoundingClientRect().top < h * 0.92) el.setAttribute('data-in', '1'); });
+    };
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => { this._raf = 0; this._sweep(); });
+    };
+    this._stop = () => {
+      window.removeEventListener('scroll', this._onScroll);
+      if (this._safety) { clearTimeout(this._safety); this._safety = 0; }
+    };
+    this._sweep();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._safety = setTimeout(() => { this._pending().forEach(el => el.setAttribute('data-in', '1')); }, 2500);
+
+    this._onKeydown = e => {
+      if (e.key === 'Escape' && this.state.enviado) this.setState({ enviado: false });
+    };
+    document.addEventListener('keydown', this._onKeydown);
+    this._lastEnviado = this.state.enviado;
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this._sweep) this._sweep();
+    if (this._lastEnviado !== this.state.enviado) {
+      this.lockScroll(this.state.enviado);
+      this._lastEnviado = this.state.enviado;
+    }
+  }
+
+  componentWillUnmount() {
+    if (this._stop) this._stop();
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._onKeydown) document.removeEventListener('keydown', this._onKeydown);
+    if (this.state.enviado) this.lockScroll(false);
+  }
+
+  scrollA(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 72;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+
+  total() {
+    const t = PACKS.reduce((sum, p, i) => sum + p.p * this.state.qty[i], 0);
+    return t.toFixed(2).replace(".", ",") + " €";
+  }
+
+  renderVals() {
+    const lineas = this.lineas();
+    const totalQty = this.state.qty.reduce((a, b) => a + b, 0);
+    const v = {
+      fechaSelTxt: this.state.fecha || "Sin elegir",
+      totalTxt: totalQty ? this.total() : "—",
+      fechaVal: this.state.fecha,
+      enviado: this.state.enviado,
+      ctaTexto: this.props.ctaTexto ?? "Reserva tu mesa",
+      notaPrecios: this.props.notaPrecios ?? "Precios orientativos, IVA incluido. La carta definitiva se confirma con tu reserva.",
+      refNombre: this.refNombre,
+      refEmail: this.refEmail,
+      refTel: this.refTel,
+      refNota: this.refNota,
+      onFechaChange: e => this.setState({ fecha: e.target.value }),
+      otraReserva: () => this.setState({ enviado: false, datos: null, qty: [0, 0, 0, 0], fecha: "" }),
+      cerrarModal: () => this.setState({ enviado: false }),
+      onBackdropClick: e => { if (e.target === e.currentTarget) this.setState({ enviado: false }); },
+      lineas: lineas,
+      lineasForm: lineas,
+      sinPacks: totalQty === 0,
+      comensalesTxt: totalQty ? this.comensalesLabel(this.comensales()) : "—",
+      onSubmit: e => {
+        e.preventDefault();
+        const nombre = this.refNombre.current ? this.refNombre.current.value : "";
+        const email = this.refEmail.current ? this.refEmail.current.value : "";
+        const telefono = this.refTel.current ? this.refTel.current.value : "";
+        const nota = this.refNota.current ? this.refNota.current.value : "";
+        if (!this.state.fecha || totalQty === 0) { this.scrollA(this.state.fecha ? "packs" : "fechas"); return; }
+        const datos = {
+          nombre, email, telefono, nota,
+          fecha: this.state.fecha,
+          lineas: lineas,
+          comensales: this.comensales(),
+          total: this.total()
+        };
+        this.setState({ enviado: true, datos });
+        this.sendToSheet(datos);
+      },
+      nombreEnviado: this.state.datos ? (this.state.datos.nombre || "").split(" ")[0] : "",
+      emailEnviado: this.state.datos ? this.state.datos.email : "",
+      resumenTxt: this.state.datos
+        ? ((this.state.datos.lineas.map(l => l.etiqueta).join(", ") || "tu pack") + " para el " + this.state.datos.fecha)
+        : "",
+      fechaEnviada: this.state.datos ? this.state.datos.fecha : "",
+      lineasEnviadas: this.state.datos ? this.state.datos.lineas : [],
+      comensalesEnviados: this.state.datos ? this.comensalesLabel(this.state.datos.comensales) : "",
+      totalEnviado: this.state.datos ? this.state.datos.total : "—",
+      mailtoHref: this.buildMailtoHref(this.state.datos)
+    };
+
+    FECHAS.forEach((f, i) => {
+      const sel = this.state.fecha === f;
+      v["d" + i + "bg"] = sel ? "var(--primary)" : "#fff";
+      v["d" + i + "fg"] = sel ? "var(--fg-on-primary)" : "var(--fg1)";
+      v["d" + i + "bd"] = sel ? "var(--primary)" : "var(--border)";
+      v["d" + i + "on"] = () => { this.setState({ fecha: f }); this.scrollA("packs"); };
+    });
+
+    PACKS.forEach((p, i) => {
+      const q = this.state.qty[i];
+      const sel = q > 0;
+      v["p" + i + "bd"] = sel ? "var(--primary)" : "#f0f0f0";
+      v["p" + i + "fg"] = sel ? "var(--primary)" : "var(--fg1)";
+      v["p" + i + "txt"] = String(q);
+      v["p" + i + "dec"] = () => this.decPack(i);
+      v["p" + i + "inc"] = () => this.incPack(i);
+    });
+
+    return v;
+  }
+}
+
+</script>
+</body>
+</html>
