@@ -141,8 +141,10 @@
 
   <section style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(48px,7vw,72px) clamp(20px,4vw,32px)">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,48px);align-items:center">
-      <div style="border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:4/3">
-        <img src="assets/bandera-colombia.jpg" alt="Bandera de Colombia" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div style="position:relative;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:4/3">
+        <sc-for list="{{ colombiaSlides }}" as="s">
+          <img src="{{ s.src }}" alt="{{ s.alt }}" style="{{ s.style }}">
+        </sc-for>
       </div>
       <div>
         <div class="s-eyebrow">Mes de Colombia</div>
@@ -179,7 +181,7 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,48px);align-items:center">
         <div>
           <div data-rise="1" class="s-eyebrow">Cómo llegar</div>
-          <h2 data-rise="1" class="s-h2" style="margin:12px 0 20px;font-size:var(--fs-36)">¡A solo 10 minutos del concierto!</h2>
+          <h2 data-rise="1" class="s-h2" style="margin:12px 0 20px;font-size:var(--fs-36)">A 10 minutos del concierto</h2>
           <dl data-rise="1" style="margin:0;display:flex;flex-direction:column;gap:18px">
             <div style="display:flex;gap:12px">
               <span style="flex:none;width:26px;height:26px;border-radius:50%;background:var(--fg2);color:#fff;display:grid;place-items:center;font-size:var(--fs-12);font-weight:800">1</span>
@@ -208,15 +210,7 @@
                 <dd style="margin:4px 0 0;font-size:var(--fs-14)"><a href="https://maps.app.goo.gl/fyaS6nXkLWqjgsEi6" target="_blank" rel="noopener">Abrir en Google Maps →</a></dd>
               </div>
             </div>
-            <div style="display:flex;gap:12px">
-              <span style="flex:none;width:26px;height:26px"></span>
-              <div>
-                <dt style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3)">Horario las noches de concierto</dt>
-                <dd style="margin:6px 0 0;font-size:var(--fs-16);color:var(--fg2)">Cocina de 19:00 a 23:30 · Barra hasta el cierre</dd>
-              </div>
-            </div>
           </dl>
-          <p class="s-caption" style="margin:22px 0 0">La dirección exacta y la hora de tu mesa van en el email de confirmación.</p>
         </div>
         <div style="border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);aspect-ratio:16/10;background:var(--bg-muted)">
           <iframe title="Mapa: La Charlatana y el concierto de Shakira" src="mapa.html" style="width:100%;height:100%;border:0;display:block" loading="lazy"></iframe>
@@ -410,8 +404,15 @@
 
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;verGaleria&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;},&quot;verMapa&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;}}">
+const COLOMBIA_SLIDES = [
+  { src: 'assets/bandera-colombia.jpg', alt: 'Bandera de Colombia' },
+  { src: 'assets/plato-chuleton.jpg', alt: 'Chuletón al punto con patatas' },
+  { src: 'assets/plato-pollo.jpg', alt: 'Pollo asado con patatas' },
+  { src: 'assets/plato-noodles.jpg', alt: 'Salteado de noodles' }
+];
+
 class Component extends DCLogic {
-  state = { menuOpen: false, foodMenuOpen: false };
+  state = { menuOpen: false, foodMenuOpen: false, colombiaSlide: 0 };
 
   lockScroll(lock) {
     if (lock) {
@@ -456,6 +457,10 @@ class Component extends DCLogic {
     };
     document.addEventListener('keydown', this._onKeydown);
     this._lastFoodMenuOpen = this.state.foodMenuOpen;
+
+    this._colombiaTimer = setInterval(() => {
+      this.setState(s => ({ colombiaSlide: (s.colombiaSlide + 1) % COLOMBIA_SLIDES.length }));
+    }, 3200);
   }
 
   componentDidUpdate() {
@@ -472,6 +477,7 @@ class Component extends DCLogic {
     if (this._raf) cancelAnimationFrame(this._raf);
     if (this._onKeydown) document.removeEventListener('keydown', this._onKeydown);
     if (this.state.foodMenuOpen) this.lockScroll(false);
+    if (this._colombiaTimer) clearInterval(this._colombiaTimer);
   }
 
   renderVals() {
@@ -481,6 +487,11 @@ class Component extends DCLogic {
       menuOpen: this.state.menuOpen,
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
       closeMenu: () => this.setState({ menuOpen: false }),
+      colombiaSlides: COLOMBIA_SLIDES.map((s, i) => ({
+        src: s.src,
+        alt: s.alt,
+        style: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:' + (i === this.state.colombiaSlide ? 1 : 0) + ';transition:opacity 900ms ease'
+      })),
       foodMenuOpen: this.state.foodMenuOpen,
       openFoodMenu: () => this.setState({ foodMenuOpen: true }),
       openFoodMenuFromNav: () => this.setState({ menuOpen: false, foodMenuOpen: true }),
