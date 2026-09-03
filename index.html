@@ -32,6 +32,7 @@
     --ease-out: cubic-bezier(.22,1,.36,1); --ease-std: cubic-bezier(.4,0,.2,1);
     --dur-fast: 120ms; --dur-base: 220ms;
     --maxw-page: 1240px;
+    --header-h: 69px;
   }
   img, iframe { max-width: 100%; }
   body { margin: 0; background: var(--bg) url("assets/bg-textura.jpg") repeat center / 1200px auto; font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
@@ -57,7 +58,6 @@
     [data-hamburger] { display: inline-flex !important; }
   }
   @media (max-width: 600px) {
-    [data-hero] { min-height: 620px !important; }
     [data-hero] img { object-position: 72% 32% !important; }
   }
   @media (max-width: 720px) {
@@ -68,15 +68,12 @@
     [data-header] { padding-left: 14px !important; padding-right: 14px !important; gap: 8px !important; }
     [data-brand] { gap: 8px !important; }
     [data-logo] { height: 26px !important; }
-    [data-divider] { height: 18px !important; }
-    [data-madrid] { font-size: 9px !important; letter-spacing: 0.08em !important; }
     [data-hamburger] { width: 38px !important; height: 38px !important; }
   }
   @media (max-width: 400px) {
     [data-header] { gap: 6px !important; }
     [data-brand] { gap: 6px !important; }
     [data-logo] { height: 22px !important; }
-    [data-madrid] { font-size: 8px !important; letter-spacing: 0.05em !important; }
     [data-hamburger] { width: 34px !important; height: 34px !important; }
   }
 </style>
@@ -87,14 +84,12 @@
   <header data-header="1" style="position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:16px clamp(16px,3vw,32px);background:rgba(12,8,8,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08)">
     <div data-brand="1" style="display:flex;align-items:center;gap:14px;min-width:0">
       <img data-logo="1" src="assets/logo-charlatana.avif" alt="La Charlatana" style="height:36px;width:auto;display:block;flex:none">
-      <span data-divider="1" style="width:1px;height:26px;background:rgba(255,255,255,0.18);flex:none"></span>
-      <span data-madrid="1" class="s-caption" style="text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.62);white-space:nowrap">Madrid 2026</span>
     </div>
     <nav data-nav="1" style="display:flex;align-items:center;gap:30px">
-      <button type="button" onClick="{{ openFoodMenu }}" style="cursor:pointer;background:transparent;border:none;padding:0;font-family:var(--font-body);font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);transition:color var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary-soft)">Menú</button>
-      <a href="#galeria" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);transition:color var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary-soft)">Galería</a>
-      <a href="#llegar" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);transition:color var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary-soft)">Cómo llegar</a>
-      <a href="contacto.html" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);transition:color var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary-soft)">Contáctanos</a>
+      <button type="button" onClick="{{ openFoodMenu }}" style="cursor:pointer;background:transparent;border:none;padding:0;font-family:var(--font-body);font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Menú</button>
+      <a href="#galeria" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Galería</a>
+      <a href="#llegar" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Cómo llegar</a>
+      <a href="contacto.html" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Contáctanos</a>
     </nav>
     <a data-cta-reserva="1" href="reservas.html" style="border:none;cursor:pointer;background:var(--primary);color:var(--fg-on-primary);border-radius:var(--r-pill);padding:13px 24px;font-size:var(--fs-14);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;box-shadow:var(--shadow-brand);transition:background var(--dur-fast) var(--ease-out);white-space:nowrap;flex:none" style-hover="background:var(--primary-hover);color:var(--fg-on-primary)">Reserva tu mesa</a>
     <button data-hamburger="1" type="button" onClick="{{ toggleMenu }}" aria-label="Abrir menú" style="cursor:pointer;background:transparent;border:1.5px solid rgba(255,255,255,0.4);border-radius:var(--r-md);width:44px;height:44px;align-items:center;justify-content:center;flex:none">
@@ -114,12 +109,12 @@
     </div>
   </sc-if>
 
-  <section data-hero="1" style="position:relative;overflow:hidden;min-height:clamp(520px,74vh,720px);display:flex;align-items:flex-end;color:#fff">
+  <section data-hero="1" style="position:relative;overflow:hidden;min-height:calc(100vh - var(--header-h));min-height:calc(100dvh - var(--header-h));display:flex;align-items:center;color:#fff">
     <div style="position:absolute;inset:0;z-index:0;background:#0a0505">
       <img src="uploads/bg_header_charlatana.webp" alt="Rótulo de neón de La Charlatana sobre el ambiente de un concierto" style="width:100%;height:100%;object-fit:cover;object-position:66% 32%;display:block;opacity:0.92">
       <div style="position:absolute;inset:0;background-image:linear-gradient(100deg, rgba(4,2,2,0.92) 0%, rgba(4,2,2,0.6) 40%, rgba(4,2,2,0.2) 72%, rgba(4,2,2,0.08) 100%), linear-gradient(0deg, rgba(4,2,2,0.92) 0%, rgba(4,2,2,0.35) 38%, rgba(4,2,2,0.05) 62%)"></div>
     </div>
-    <div style="position:relative;z-index:1;max-width:var(--maxw-page);margin:0 auto;width:100%;padding:24px clamp(20px,4vw,32px) clamp(28px,4vw,44px)">
+    <div style="position:relative;z-index:1;max-width:var(--maxw-page);margin:0 auto;width:100%;padding:clamp(32px,6vh,64px) clamp(20px,4vw,32px)">
       <div style="max-width:640px">
         <div data-rise="1" style="transition-delay:0ms">
           <img class="pulse-logo" src="assets/logo-charlatana-rayo.avif" alt="Charlatana · Polígono Food" style="width:clamp(220px,26vw,300px);height:auto;display:block">
@@ -434,6 +429,19 @@ class Component extends DCLogic {
       banner.play().catch(() => {});
     }
 
+    // Mide la altura real de la barra de navegación (varía por breakpoint)
+    // para que el hero ocupe exactamente el resto de la pantalla.
+    const headerEl = document.querySelector('[data-header]');
+    this._syncHeaderH = () => {
+      if (headerEl) document.documentElement.style.setProperty('--header-h', headerEl.offsetHeight + 'px');
+    };
+    this._syncHeaderH();
+    window.addEventListener('resize', this._syncHeaderH);
+    if (window.ResizeObserver && headerEl) {
+      this._headerRO = new ResizeObserver(this._syncHeaderH);
+      this._headerRO.observe(headerEl);
+    }
+
     const SEL = '[data-rise]:not([data-in]),[data-pop]:not([data-in]),[data-fade]:not([data-in])';
     this._pending = () => document.querySelectorAll(SEL);
     this._sweep = () => {
@@ -478,6 +486,8 @@ class Component extends DCLogic {
     if (this._onKeydown) document.removeEventListener('keydown', this._onKeydown);
     if (this.state.foodMenuOpen) this.lockScroll(false);
     if (this._colombiaTimer) clearInterval(this._colombiaTimer);
+    if (this._syncHeaderH) window.removeEventListener('resize', this._syncHeaderH);
+    if (this._headerRO) this._headerRO.disconnect();
   }
 
   renderVals() {
