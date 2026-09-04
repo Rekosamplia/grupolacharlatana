@@ -111,23 +111,21 @@
 
   <section data-hero="1" style="position:relative;overflow:hidden;min-height:calc(100vh - var(--header-h));min-height:calc(100dvh - var(--header-h));display:flex;align-items:center;color:#fff">
     <div style="position:absolute;inset:0;z-index:0;background:#0a0505">
-      <img src="uploads/bg_header_charlatana.webp" alt="Rótulo de neón de La Charlatana sobre el ambiente de un concierto" style="width:100%;height:100%;object-fit:cover;object-position:66% 32%;display:block;opacity:0.92">
+      <img src="assets/fondo-estrellas.jpg" alt="Cielo estrellado" style="width:100%;height:100%;object-fit:cover;display:block">
       <div style="position:absolute;inset:0;background-image:linear-gradient(100deg, rgba(4,2,2,0.92) 0%, rgba(4,2,2,0.6) 40%, rgba(4,2,2,0.2) 72%, rgba(4,2,2,0.08) 100%), linear-gradient(0deg, rgba(4,2,2,0.92) 0%, rgba(4,2,2,0.35) 38%, rgba(4,2,2,0.05) 62%)"></div>
     </div>
-    <div style="position:relative;z-index:1;max-width:var(--maxw-page);margin:0 auto;width:100%;padding:clamp(32px,6vh,64px) clamp(20px,4vw,32px)">
-      <div style="max-width:640px">
-        <div data-rise="1" style="transition-delay:0ms">
-          <img class="pulse-logo" src="assets/logo-charlatana-rayo.avif" alt="Charlatana · Polígono Food" style="width:clamp(220px,26vw,300px);height:auto;display:block">
-        </div>
-        <h1 data-rise="1" style="transition-delay:90ms;margin:12px 0 0;font-family:var(--font-display);font-weight:900;font-style:italic;font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.15;letter-spacing:-0.02em;text-wrap:balance;text-shadow:0 4px 24px rgba(0,0,0,0.35)"><span style="font-size:1.35em">¡Clara-mente</span><br><span style="font-weight:300">la </span><span style="font-weight:900">previa</span><span style="font-weight:300"> y el </span><span style="font-weight:900">after</span><span style="font-weight:300"> es en la </span><span style="font-weight:900">charlatana</span><span style="font-weight:300">!</span></h1>
-        <p data-rise="1" style="transition-delay:160ms;margin:8px 0 0;font-size:var(--fs-16);font-weight:500;color:rgba(255,255,255,0.85)">A 10 minutos del concierto.</p>
-        <p data-rise="1" style="transition-delay:220ms;margin:12px 0 0;max-width:46ch;font-size:var(--fs-18);line-height:1.5;color:rgba(255,255,255,0.92);text-wrap:pretty"><span style="font-weight:800">¿Vas al concierto?</span> Ven a vivir <span style="font-weight:800">LA PREVIA</span>, te esperan regalos, sorpresas y todo lo necesario <span style="font-weight:800">pa'pasarla bien</span>.</p>
+    <div style="position:relative;z-index:1;max-width:var(--maxw-page);margin:0 auto;width:100%;padding:clamp(32px,6vh,64px) clamp(20px,4vw,32px);text-align:center">
+      <div data-rise="1" style="transition-delay:0ms">
+        <img class="pulse-logo" src="assets/logo-charlatana-rayo.avif" alt="Charlatana · Polígono Food" style="width:clamp(320px,62vw,680px);height:auto;display:block;margin:0 auto">
       </div>
+      <h1 data-rise="1" style="transition-delay:90ms;margin:20px auto 0;max-width:720px;font-family:var(--font-display);font-weight:900;font-style:italic;font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.15;letter-spacing:-0.02em;text-wrap:balance;text-shadow:0 4px 24px rgba(0,0,0,0.35)"><span style="font-size:1.35em">¡Clara-mente</span><br><span style="font-weight:300">la </span><span style="font-weight:900">previa</span><span style="font-weight:300"> y el </span><span style="font-weight:900">after</span><span style="font-weight:300"> es en la </span><span style="font-weight:900">charlatana</span><span style="font-weight:300">!</span></h1>
+      <p data-rise="1" style="transition-delay:160ms;margin:8px auto 0;font-size:var(--fs-16);font-weight:500;color:rgba(255,255,255,0.85)">A 10 minutos del concierto.</p>
+      <p data-rise="1" style="transition-delay:220ms;margin:12px auto 0;max-width:46ch;font-size:var(--fs-18);line-height:1.5;color:rgba(255,255,255,0.92);text-wrap:pretty"><span style="font-weight:800">¿Vas al concierto?</span> Ven a vivir <span style="font-weight:800">LA PREVIA</span>, te esperan regalos, sorpresas y todo lo necesario <span style="font-weight:800">pa'pasarla bien</span>.</p>
     </div>
   </section>
 
   <section style="position:relative;overflow:hidden;height:clamp(360px,48vw,580px);background:#0c0808">
-    <video id="wakacombos-video" src="uploads/wakacombos.mp4" autoplay muted playsinline aria-label="Charlatana · Polígono Food" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
+    <video id="wakacombos-video" src="uploads/wakacombos.mp4" autoplay muted loop playsinline aria-label="Charlatana · Polígono Food" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
   </section>
 
   <section style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(48px,7vw,72px) clamp(20px,4vw,32px)">
@@ -422,6 +420,7 @@ class Component extends DCLogic {
     const banner = document.getElementById('wakacombos-video');
     if (banner) {
       banner.muted = true;
+      banner.loop = true;
       banner.play().catch(() => {});
     }
 
