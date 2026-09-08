@@ -214,15 +214,10 @@
     </section>
   </sc-if>
 
-  <section style="margin-top:clamp(56px,8vw,96px);background:#0a0505;color:var(--fg-on-primary);padding:clamp(56px,8vw,80px) clamp(20px,4vw,32px);position:relative;overflow:hidden">
+  <section style="margin-top:clamp(56px,8vw,96px);background:#0a0505;color:var(--fg-on-primary);padding:clamp(56px,8vw,80px) 0;position:relative;overflow:hidden">
     <img src="assets/fondo-estrellas.jpg" alt="Cielo estrellado" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(4,2,2,0.25) 0%, rgba(4,2,2,0.65) 100%)"></div>
-    <div style="position:relative;max-width:var(--maxw-page);margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px">
-      <a href="reservas.html" data-rise="1" style="display:block;transition:transform var(--dur-fast) var(--ease-out)" style-hover="transform:translateY(-2px)" style-active="transform:scale(0.97)">
-        <img src="assets/barranquilla-texto.png" alt="De Barranquilla a Villaverde" style="width:min(100%,560px);height:auto;display:block">
-      </a>
-      <p style="margin:0;font-size:var(--fs-18);color:rgba(255,255,255,0.9)">Reserva anticipada hasta agotar plazas.</p>
-    </div>
+    <img data-rise="1" src="assets/barranquilla-texto.png" alt="De Barranquilla a Villaverde" style="position:relative;width:100%;height:auto;display:block">
   </section>
 
   <footer style="position:relative;overflow:hidden;padding:clamp(48px,7vw,72px) clamp(20px,4vw,32px);background:#000">
