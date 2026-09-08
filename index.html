@@ -142,7 +142,7 @@
         </sc-for>
       </div>
       <div>
-        <div class="s-eyebrow" style="font-family:'Dream Planner',var(--font-display);font-size:var(--fs-16)">Mes de Colombia</div>
+        <div class="s-eyebrow" style="font-family:'Dream Planner',var(--font-display);font-size:clamp(1.7rem,4.2vw,2.3rem)">Mes de Colombia</div>
         <h2 class="s-h2" style="margin:12px 0 0;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-0.02em">En Septiembre celebramos el sabor de Colombia</h2>
         <p class="s-body" style="margin:14px 0 0">Empanadas, arepas, buñuelos, pandebono, bandeja paisa, sancocho y más — hemos sumado platos típicos colombianos a la carta durante todo el mes.</p>
         <button type="button" onClick="{{ openFoodMenu }}" style="margin-top:24px;cursor:pointer;background:var(--primary);color:#fff;border:none;border-radius:var(--r-pill);padding:16px 30px;font-size:var(--fs-14);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;box-shadow:var(--shadow-brand);transition:background var(--dur-fast) var(--ease-out)" style-hover="background:var(--primary-hover)">Ver menú</button>
@@ -152,7 +152,7 @@
 
   <sc-if value="{{ verGaleria }}" hint-placeholder-val="{{ true }}">
     <section id="galeria" style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) 0">
-      <div data-rise="1" class="s-eyebrow" style="font-family:'Dream Planner',var(--font-display);font-size:var(--fs-16)">Los wakaCombos</div>
+      <div data-rise="1" class="s-eyebrow" style="font-family:'Dream Planner',var(--font-display);font-size:clamp(1.7rem,4.2vw,2.3rem)">Los wakaCombos</div>
       <h2 data-rise="1" class="s-h2" style="margin:12px 0 40px;font-size:var(--fs-36)">Deliciosos platos colombianos, bocadillos, Bebidas...</h2>
       <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(150px,18vw,220px);gap:16px" data-gal="1">
         <div style="grid-column:span 2;grid-row:span 2;border-radius:var(--r-lg);overflow:hidden;background:var(--bg-muted)">
@@ -175,7 +175,7 @@
     <section id="llegar" style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) 0">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,48px);align-items:center">
         <div>
-          <div data-rise="1" class="s-eyebrow" style="font-family:'Dream Planner',var(--font-display);font-size:var(--fs-16)">Cómo llegar</div>
+          <div data-rise="1" class="s-eyebrow" style="font-family:'Dream Planner',var(--font-display);font-size:clamp(1.7rem,4.2vw,2.3rem)">Cómo llegar</div>
           <h2 data-rise="1" class="s-h2" style="margin:12px 0 20px;font-size:var(--fs-36)">A 10 minutos del concierto</h2>
           <dl data-rise="1" style="margin:0;display:flex;flex-direction:column;gap:18px">
             <div style="display:flex;gap:12px">
@@ -217,12 +217,11 @@
   <section style="margin-top:clamp(56px,8vw,96px);background:#0a0505;color:var(--fg-on-primary);padding:clamp(56px,8vw,80px) clamp(20px,4vw,32px);position:relative;overflow:hidden">
     <img src="assets/fondo-estrellas.jpg" alt="Cielo estrellado" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(4,2,2,0.25) 0%, rgba(4,2,2,0.65) 100%)"></div>
-    <div style="position:relative;max-width:var(--maxw-page);margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px">
-      <div>
-        <h2 data-rise="1" style="margin:0;font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,3.6vw,var(--fs-48));line-height:1.02;letter-spacing:-0.02em">12 noches. 4 packs.<br>Una sola mesa libre a la vez.</h2>
-        <p style="margin:16px 0 0;font-size:var(--fs-18);color:rgba(255,255,255,0.9)">Reserva anticipada hasta agotar plazas.</p>
-      </div>
-      <a href="reservas.html" style="border:none;cursor:pointer;background:#fff;color:var(--primary);border-radius:var(--r-pill);padding:20px 38px;font-size:var(--fs-18);font-weight:800;letter-spacing:0.06em;text-transform:uppercase;box-shadow:0 12px 28px rgba(0,0,0,0.2);transition:transform var(--dur-fast) var(--ease-out)" style-hover="transform:translateY(-2px)" style-active="transform:scale(0.97)">Reserva tu mesa</a>
+    <div style="position:relative;max-width:var(--maxw-page);margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px">
+      <a href="reservas.html" data-rise="1" style="display:block;transition:transform var(--dur-fast) var(--ease-out)" style-hover="transform:translateY(-2px)" style-active="transform:scale(0.97)">
+        <img src="assets/barranquilla-texto.png" alt="De Barranquilla a Villaverde" style="width:min(100%,560px);height:auto;display:block">
+      </a>
+      <p style="margin:0;font-size:var(--fs-18);color:rgba(255,255,255,0.9)">Reserva anticipada hasta agotar plazas.</p>
     </div>
   </section>
 
