@@ -94,7 +94,10 @@
       <a href="#galeria" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Galería</a>
       <a href="#llegar" style="font-size:var(--fs-14);font-weight:800;color:#fff;text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Cómo llegar</a>
       <a href="contacto.html" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Contáctanos</a>
-      <a href="reservas.html" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Reserva tu mesa</a>
+      <!-- Reservas desactivadas temporalmente: se activará más adelante -->
+      <sc-if value="{{ false }}">
+        <a href="reservas.html" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Reserva tu mesa</a>
+      </sc-if>
     </nav>
     <button data-hamburger="1" type="button" onClick="{{ toggleMenu }}" aria-label="Abrir menú" style="cursor:pointer;background:transparent;border:1.5px solid rgba(255,255,255,0.4);border-radius:var(--r-md);width:44px;height:44px;align-items:center;justify-content:center;flex:none">
       <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M2 5h16M2 10h16M2 15h16"/></svg>
@@ -111,7 +114,10 @@
       <a href="#galeria" onClick="{{ closeMenu }}" style="padding:14px 8px;font-size:var(--fs-18);font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)">Galería</a>
       <a href="#llegar" onClick="{{ closeMenu }}" style="padding:14px 8px;font-size:var(--fs-18);font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)">Cómo llegar</a>
       <a href="contacto.html" style="padding:14px 8px;font-size:var(--fs-18);font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)">Contáctanos</a>
-      <a href="reservas.html" style="margin-top:18px;text-align:center;cursor:pointer;background:var(--primary);color:#fff;border-radius:var(--r-pill);padding:16px 24px;font-size:var(--fs-16);font-weight:800;letter-spacing:0.06em;text-transform:uppercase;box-shadow:var(--shadow-brand)">Reservar →</a>
+      <!-- Reservas desactivadas temporalmente: se activará más adelante -->
+      <sc-if value="{{ false }}">
+        <a href="reservas.html" style="margin-top:18px;text-align:center;cursor:pointer;background:var(--primary);color:#fff;border-radius:var(--r-pill);padding:16px 24px;font-size:var(--fs-16);font-weight:800;letter-spacing:0.06em;text-transform:uppercase;box-shadow:var(--shadow-brand)">Reservar →</a>
+      </sc-if>
     </div>
   </sc-if>
 
@@ -227,9 +233,9 @@
     <div style="position:absolute;inset:0;background:rgba(4,2,2,0.8)"></div>
     <div style="position:relative;z-index:1;max-width:var(--maxw-page);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center">
       <div style="display:flex;align-items:center;gap:22px">
-        <span aria-label="Facebook (próximamente)" title="Facebook (próximamente)" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.3);color:#fff;flex:none">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.86c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.87h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z"/></svg>
-        </span>
+        <a href="https://www.tiktok.com/@grupocharlatana?_r=1&_t=ZN-99kXcKKjzz4" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.3);color:#fff;flex:none;transition:border-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)" style-hover="border-color:#fff;color:#fff">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.7-.77-1.13-1.76-1.2-2.82h-3.07v13.44c0 1.5-1.22 2.72-2.72 2.72a2.72 2.72 0 0 1-2.72-2.72 2.72 2.72 0 0 1 2.72-2.72c.28 0 .55.04.8.12v-3.12a5.8 5.8 0 0 0-.8-.06A5.86 5.86 0 0 0 3.75 16.5a5.86 5.86 0 0 0 5.86 5.86 5.86 5.86 0 0 0 5.86-5.86V9.01a8.9 8.9 0 0 0 5.14 1.64V7.58a5.5 5.5 0 0 1-3.99-1.76Z"/></svg>
+        </a>
         <span style="display:inline-flex;background:#fff;border-radius:var(--r-lg);padding:22px 34px">
           <img src="assets/logo-charlatana.avif" alt="La Charlatana" style="height:clamp(64px,9vw,104px);width:auto;display:block">
         </span>
