@@ -154,8 +154,7 @@
         <image-slot id="nosotros-local" shape="rect" src="uploads/bg_hero_charlatana.webp" style="position:absolute;inset:0;width:100%;height:100%;display:block" placeholder="Foto del local / espacio de coworking"></image-slot>
       </div>
       <div class="nosotros-text">
-        <div data-rise="1" class="s-eyebrow" style="font-family:'Dream Planner',var(--font-display);font-size:clamp(1.7rem,4.2vw,2.3rem)">Nosotros</div>
-        <h2 data-rise="1" class="s-h2" style="margin:12px 0 0;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-0.02em">Descubre el verdadero <span style="font-weight:800;color:var(--primary)">Polígono Food</span></h2>
+        <h2 data-rise="1" class="s-h2" style="margin:0;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-0.02em">Descubre el verdadero <span style="font-weight:800;color:var(--primary)">Polígono Food</span></h2>
         <p class="s-body" style="margin:14px 0 0"><span style="font-weight:800;color:var(--primary)">Charlatana</span> es un restaurante, bar y cafetería ubicado en el Polígono Empresarial de Villaverde Alto, donde la comida casera y los sabores auténticos son protagonistas.</p>
         <p class="s-body" style="margin:14px 0 0">Nuestro <span style="font-weight:800;color:var(--primary)">menú del día</span> ofrece opciones variadas, complementadas con <span style="font-weight:800;color:var(--primary)">bocadillos</span> generosos, carnes a la brasa, hamburguesas y parrilla, siempre con ingredientes de calidad.</p>
         <p class="s-body" style="margin:14px 0 0">Además, contamos con buen <span style="font-weight:800;color:var(--primary)">café</span> para acompañar la jornada y un espacio de coworking para quienes buscan un lugar cómodo donde trabajar.</p>
@@ -318,34 +317,71 @@
         </div>
 
         <div class="menu-title" style="margin-top:32px">WakaCombos</div>
-        <div style="max-width:380px;margin:14px auto 0;display:flex;flex-direction:column;gap:0">
-          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:var(--fs-16);color:var(--fg1)">Empanada</span>
-            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">5 €</span>
+        <p class="s-caption" style="margin:4px 0 0;text-align:center;font-style:italic">Todos los Wakacombos incluyen una bebida a elegir</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px">
+          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Uno · Ciega sordomuda</span>
+              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary);white-space:nowrap">7 €</span>
+            </div>
+            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
+              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bebida (refresco/doble)</li>
+              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 arepa frita rellena</li>
+            </ul>
           </div>
-          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:var(--fs-16);color:var(--fg1)">Perrito</span>
-            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">6 €</span>
+          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Dos · La Tortura</span>
+              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary);white-space:nowrap">6 €</span>
+            </div>
+            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
+              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bebida (refresco/doble)</li>
+              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bocadillo frío a elegir: jamón con tomate o tortilla</li>
+            </ul>
           </div>
-          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:var(--fs-16);color:var(--fg1)">Bocata frío</span>
-            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">6 €</span>
+          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Tres · Perro Fiel</span>
+              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary);white-space:nowrap">6 €</span>
+            </div>
+            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
+              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bebida (refresco/doble)</li>
+              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 perrito caliente</li>
+            </ul>
           </div>
-          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:var(--fs-16);color:var(--fg1)">Arepa</span>
-            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">7 €</span>
+          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Cuatro · Inevitable</span>
+              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary);white-space:nowrap">7 €</span>
+            </div>
+            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
+              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bebida (refresco/doble)</li>
+              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bocadillo caliente a elegir: lomo-queso, bacon-queso o pollo plancha</li>
+            </ul>
           </div>
-          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:var(--fs-16);color:var(--fg1)">Bocata caliente</span>
-            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">7 €</span>
+          <div style="border:1.5px solid var(--primary);border-radius:var(--r-lg);padding:14px 16px;background:var(--primary-soft)">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Cinco · Viva Colombia</span>
+              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary);white-space:nowrap">5 €</span>
+            </div>
+            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
+              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bebida (refresco/doble)</li>
+              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 empanada colombiana</li>
+            </ul>
           </div>
-          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:var(--fs-16);color:var(--fg1)">Hamburguesa</span>
-            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">10 €</span>
+          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Seis · La de la Intuición</span>
+              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary);white-space:nowrap">10 €</span>
+            </div>
+            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
+              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bebida (refresco/doble)</li>
+              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 hamburguesa (carne, queso, bacon)</li>
+            </ul>
           </div>
         </div>
 
-        <div style="margin:28px auto 0;max-width:380px;text-align:center;background:var(--primary-soft);color:var(--primary);border-radius:var(--r-pill);padding:12px 20px;font-weight:800;font-size:var(--fs-14);text-transform:uppercase;letter-spacing:0.04em">Chupito de aguardiente de regalo</div>
+        <div style="margin:28px auto 0;max-width:380px;text-align:center;background:var(--primary-soft);color:var(--primary);border-radius:var(--r-pill);padding:12px 20px;font-weight:800;font-size:var(--fs-14);text-transform:uppercase;letter-spacing:0.04em">Chupito de Limonchello gratis con tu Wakacombo</div>
 
         <button type="button" onClick="{{ closeFoodMenu }}" style="margin-top:24px;width:100%;cursor:pointer;background:var(--primary);color:#fff;border:none;border-radius:var(--r-pill);padding:14px 20px;font-size:var(--fs-14);font-weight:700;letter-spacing:0.06em;text-transform:uppercase" style-hover="background:var(--primary-hover)">Cerrar</button>
       </div>
