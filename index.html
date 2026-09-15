@@ -274,160 +274,53 @@
         <button type="button" onClick="{{ closeFoodMenu }}" aria-label="Cerrar" style="position:absolute;top:16px;right:16px;cursor:pointer;width:34px;height:34px;border-radius:50%;border:none;background:var(--bg-muted);color:var(--fg1);font-size:var(--fs-18);line-height:1" style-hover="background:var(--primary-soft);color:var(--primary)">×</button>
         <img src="assets/logo-charlatana-rayo.avif" alt="Charlatana · Polígono Food" style="display:block;margin:0 auto 20px;height:64px;width:auto">
 
-        <div class="menu-title">WakaCubos</div>
-        <p class="s-caption" style="margin:4px 0 0;text-align:center;font-style:italic">(cubo + aperitivo)</p>
-        <div class="menu-media-row" style="display:grid;grid-template-columns:minmax(96px,130px) 1fr;gap:20px;align-items:start;margin-top:14px">
-          <image-slot id="menu-wakacubos-img" shape="rect" src="assets/wakacubo-menu.jpg" style="width:100%;aspect-ratio:1/1;border-radius:var(--r-lg);overflow:hidden;display:block" placeholder="Foto de WakaCubos"></image-slot>
-          <div>
-            <div style="display:flex;flex-direction:column;gap:0">
-              <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-                <span style="font-size:var(--fs-14);color:var(--fg1)">Cubo 6 tercios</span>
-                <span style="font-size:var(--fs-14);font-weight:800;color:var(--primary)">15 / 16 €</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-                <span style="font-size:var(--fs-14);color:var(--fg1)">Cubo 6 botellines</span>
-                <span style="font-size:var(--fs-14);font-weight:800;color:var(--primary)">9 / 10 €</span>
-              </div>
-            </div>
+        <div class="menu-title">Bebidas</div>
+        <div style="max-width:380px;margin:14px auto 0;display:flex;flex-direction:column;gap:0">
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:var(--fs-16);color:var(--fg1)">Caña</span>
+            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">3 €</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:var(--fs-16);color:var(--fg1)">Refresco</span>
+            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">3 €</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:var(--fs-16);color:var(--fg1)">Minis</span>
+            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">6 €</span>
           </div>
         </div>
 
-        <div class="menu-title" style="margin-top:28px">WakaCombos</div>
-        <div class="menu-media-row" style="display:grid;grid-template-columns:minmax(96px,130px) 1fr;gap:20px;align-items:start;margin-top:14px">
-          <image-slot id="menu-wakacombos-img" shape="rect" src="assets/plato-pollo.jpg" style="width:100%;aspect-ratio:1/1;border-radius:var(--r-lg);overflow:hidden;display:block" placeholder="Foto de WakaCombos"></image-slot>
-          <div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
-          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Ciega, sordomuda</span>
-              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary)">12 €</span>
-            </div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>6 botellines</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>2 empanadas</li>
-            </ul>
+        <div class="menu-title" style="margin-top:32px">WakaCombos</div>
+        <div style="max-width:380px;margin:14px auto 0;display:flex;flex-direction:column;gap:0">
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:var(--fs-16);color:var(--fg1)">Empanada</span>
+            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">5 €</span>
           </div>
-          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">La Tortura</span>
-              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary)">10 €</span>
-            </div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>2 bebidas</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bocata</li>
-            </ul>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:var(--fs-16);color:var(--fg1)">Perrito</span>
+            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">6 €</span>
           </div>
-          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Perro Fiel</span>
-              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary)">11 €</span>
-            </div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>2 bebidas</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 perrito</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 empanada</li>
-            </ul>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:var(--fs-16);color:var(--fg1)">Bocata frío</span>
+            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">6 €</span>
           </div>
-          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Inevitable</span>
-              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary)">17 €</span>
-            </div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>4 bebidas</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bocata</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 empanada</li>
-            </ul>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:var(--fs-16);color:var(--fg1)">Arepa</span>
+            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">7 €</span>
           </div>
-          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Las de la Intuición</span>
-              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary)">10 €</span>
-            </div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>2 bebidas</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 arepa</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 empanada</li>
-            </ul>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:var(--fs-16);color:var(--fg1)">Bocata caliente</span>
+            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">7 €</span>
           </div>
-          <div style="border:1.5px solid var(--primary);border-radius:var(--r-lg);padding:14px 16px;background:var(--primary-soft)">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Colombia</span>
-              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary)">30 €</span>
-            </div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>6 bebidas</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 arepa</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>2 empanadas</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 papa rellena</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Salchipapas 1 L</li>
-            </ul>
-          </div>
-        </div>
-        </div>
-        </div>
-
-        <image-slot id="menu-dias-banner" shape="rect" src="assets/dias-conciertos-banner.jpg" style="width:100%;aspect-ratio:21/6;border-radius:var(--r-lg);overflow:hidden;display:block;margin-top:32px" placeholder="Banner: días de conciertos"></image-slot>
-        <div class="menu-title" style="margin-top:14px">Días de conciertos</div>
-        <p class="s-caption" style="margin:4px 0 0;text-align:center;font-style:italic">(comida rápida y con poca elaboración)</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:12px">
-          <div>
-            <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3)">Comida colombiana</div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Empanada colombiana</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Arepas</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Salchipapas</li>
-            </ul>
-          </div>
-          <div>
-            <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3)">Otros</div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Hamburguesa</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Perritos calientes</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Bocatas fríos: jamón york-queso, jamón serrano-tomate, jamón serrano-queso, tortilla de patatas (con o sin pimientos), embutido</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Bocatas calientes (habituales de la casa)</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Nachos con queso y guacamole</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Bravas / braviolis</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Patatas con cheddar y bacon</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Nuggets / fingers de pollo</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Tequeños</li>
-            </ul>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:var(--fs-16);color:var(--fg1)">Hamburguesa</span>
+            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">10 €</span>
           </div>
         </div>
 
-        <image-slot id="menu-colombia-banner" shape="rect" src="assets/bandera-colombia.jpg" style="width:100%;aspect-ratio:21/6;border-radius:var(--r-lg);overflow:hidden;display:block;margin-top:32px" placeholder="Banner: mes de Colombia"></image-slot>
-        <div class="menu-title" style="margin-top:14px">Mes de Colombia</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:12px">
-          <div>
-            <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3)">Bebidas latinas</div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Postobón</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Águila</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Coronita</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Aguardiente</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Batidos (mango, guanábana, maracuyá…)</li>
-            </ul>
-          </div>
-          <div>
-            <div style="font-size:var(--fs-12);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3)">Comida colombiana</div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Empanadas de carne / pollo</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Arepas rellenas de queso, con chorizo o panceta</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Buñuelos</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Pandebono</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Huevos pericos</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Papas rellenas</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Bandeja paisa</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Chuleta valluna</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Sancocho</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Sopa de costilla</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>Arroz paisa</li>
-            </ul>
-          </div>
-        </div>
+        <div style="margin:28px auto 0;max-width:380px;text-align:center;background:var(--primary-soft);color:var(--primary);border-radius:var(--r-pill);padding:12px 20px;font-weight:800;font-size:var(--fs-14);text-transform:uppercase;letter-spacing:0.04em">Chupito de aguardiente de regalo</div>
 
-        <p class="s-caption" style="margin:24px 0 0">*Bebida a elegir entre tercio, doble o refresco. Precios aproximados, pendientes de confirmación.</p>
-        <button type="button" onClick="{{ closeFoodMenu }}" style="margin-top:16px;width:100%;cursor:pointer;background:var(--primary);color:#fff;border:none;border-radius:var(--r-pill);padding:14px 20px;font-size:var(--fs-14);font-weight:700;letter-spacing:0.06em;text-transform:uppercase" style-hover="background:var(--primary-hover)">Cerrar</button>
+        <button type="button" onClick="{{ closeFoodMenu }}" style="margin-top:24px;width:100%;cursor:pointer;background:var(--primary);color:#fff;border:none;border-radius:var(--r-pill);padding:14px 20px;font-size:var(--fs-14);font-weight:700;letter-spacing:0.06em;text-transform:uppercase" style-hover="background:var(--primary-hover)">Cerrar</button>
       </div>
     </div>
   </sc-if>
