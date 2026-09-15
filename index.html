@@ -109,7 +109,7 @@
     </button>
   </header>
 
-  <div style="background:var(--primary);color:#fff;text-align:center;padding:6px 16px;font-size:var(--fs-12);font-weight:600;letter-spacing:0.02em">Avenida Real de Pinto, 87 · A solo 10 minutos del concierto</div>
+  <div style="background:var(--primary);color:#fff;text-align:center;padding:6px 16px;font-size:var(--fs-12);font-weight:600;letter-spacing:0.02em">Avenida Real de Pinto, 87 · A solo 10 minutos del concierto · Horario los días de concierto: de 6:00 a 02:00</div>
 
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
     <div onClick="{{ closeMenu }}" style="position:fixed;inset:0;z-index:90;background:rgba(6,3,3,0.6)"></div>
@@ -163,21 +163,24 @@
     </div>
   </section>
 
-  <section style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(48px,7vw,72px) clamp(20px,4vw,32px)">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,48px);align-items:center">
-      <div style="position:relative;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:4/3">
-        <sc-for list="{{ colombiaSlides }}" as="s">
-          <img src="{{ s.src }}" alt="{{ s.alt }}" style="{{ s.style }}">
-        </sc-for>
+  <!-- Mes de Colombia desactivada temporalmente: se activará más adelante -->
+  <sc-if value="{{ false }}">
+    <section style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(48px,7vw,72px) clamp(20px,4vw,32px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,48px);align-items:center">
+        <div style="position:relative;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:4/3">
+          <sc-for list="{{ colombiaSlides }}" as="s">
+            <img src="{{ s.src }}" alt="{{ s.alt }}" style="{{ s.style }}">
+          </sc-for>
+        </div>
+        <div>
+          <div class="s-eyebrow" style="font-family:'Dream Planner',var(--font-display);font-size:clamp(1.7rem,4.2vw,2.3rem)">Mes de Colombia</div>
+          <h2 class="s-h2" style="margin:12px 0 0;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-0.02em">En Septiembre celebramos el sabor de Colombia</h2>
+          <p class="s-body" style="margin:14px 0 0">Empanadas, arepas, buñuelos, pandebono, bandeja paisa, sancocho y más — hemos sumado platos típicos colombianos a la carta durante todo el mes.</p>
+          <button type="button" onClick="{{ openFoodMenu }}" style="margin-top:24px;cursor:pointer;background:var(--primary);color:#fff;border:none;border-radius:var(--r-pill);padding:16px 30px;font-size:var(--fs-14);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;box-shadow:var(--shadow-brand);transition:background var(--dur-fast) var(--ease-out)" style-hover="background:var(--primary-hover)">Ver menú</button>
+        </div>
       </div>
-      <div>
-        <div class="s-eyebrow" style="font-family:'Dream Planner',var(--font-display);font-size:clamp(1.7rem,4.2vw,2.3rem)">Mes de Colombia</div>
-        <h2 class="s-h2" style="margin:12px 0 0;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-0.02em">En Septiembre celebramos el sabor de Colombia</h2>
-        <p class="s-body" style="margin:14px 0 0">Empanadas, arepas, buñuelos, pandebono, bandeja paisa, sancocho y más — hemos sumado platos típicos colombianos a la carta durante todo el mes.</p>
-        <button type="button" onClick="{{ openFoodMenu }}" style="margin-top:24px;cursor:pointer;background:var(--primary);color:#fff;border:none;border-radius:var(--r-pill);padding:16px 30px;font-size:var(--fs-14);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;box-shadow:var(--shadow-brand);transition:background var(--dur-fast) var(--ease-out)" style-hover="background:var(--primary-hover)">Ver menú</button>
-      </div>
-    </div>
-  </section>
+    </section>
+  </sc-if>
 
   <sc-if value="{{ verGaleria }}" hint-placeholder-val="{{ true }}">
     <section id="galeria" style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) 0">
