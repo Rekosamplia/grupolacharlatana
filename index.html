@@ -274,7 +274,31 @@
         <button type="button" onClick="{{ closeFoodMenu }}" aria-label="Cerrar" style="position:absolute;top:16px;right:16px;cursor:pointer;width:34px;height:34px;border-radius:50%;border:none;background:var(--bg-muted);color:var(--fg1);font-size:var(--fs-18);line-height:1" style-hover="background:var(--primary-soft);color:var(--primary)">×</button>
         <img src="assets/logo-charlatana-rayo.avif" alt="Charlatana · Polígono Food" style="display:block;margin:0 auto 20px;height:64px;width:auto">
 
-        <div class="menu-title">Bebidas</div>
+        <div class="menu-title">Solo los días de concierto</div>
+
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(4px,1.5vw,10px);max-width:480px;margin:16px auto 0">
+          <div style="background:var(--bg-muted);border-radius:var(--r-md);padding:clamp(5px,1.5vw,12px) 4px;text-align:center">
+            <div style="font-size:clamp(7px,2vw,11px);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--fg1);white-space:nowrap">Sep</div>
+            <div style="font-size:clamp(12px,3.6vw,18px);font-weight:900;color:var(--fg1);margin-top:2px;white-space:nowrap">18–20</div>
+          </div>
+          <div style="background:var(--bg-muted);border-radius:var(--r-md);padding:clamp(5px,1.5vw,12px) 4px;text-align:center">
+            <div style="font-size:clamp(7px,2vw,11px);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--fg1);white-space:nowrap">Sep</div>
+            <div style="font-size:clamp(12px,3.6vw,18px);font-weight:900;color:var(--fg1);margin-top:2px;white-space:nowrap">25–27</div>
+          </div>
+          <div style="background:var(--bg-muted);border-radius:var(--r-md);padding:clamp(5px,1.5vw,12px) 4px;text-align:center">
+            <div style="font-size:clamp(7px,2vw,11px);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--fg1);white-space:nowrap">Oct</div>
+            <div style="font-size:clamp(12px,3.6vw,18px);font-weight:900;color:var(--fg1);margin-top:2px;white-space:nowrap">2–4</div>
+          </div>
+          <div style="background:var(--bg-muted);border-radius:var(--r-md);padding:clamp(5px,1.5vw,12px) 4px;text-align:center">
+            <div style="font-size:clamp(7px,2vw,11px);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--fg1);white-space:nowrap">Oct</div>
+            <div style="font-size:clamp(12px,3.6vw,18px);font-weight:900;color:var(--fg1);margin-top:2px;white-space:nowrap">9–11</div>
+          </div>
+        </div>
+        <p class="s-caption" style="margin:8px 0 0;text-align:center">Viernes a domingo</p>
+
+        <img src="assets/dias-conciertos-banner.jpg" alt="Sándwich, salchipapas, perrito, empanadas y papas rellenas" style="display:block;width:calc(100% + 64px);margin:20px -32px 0;max-width:none;aspect-ratio:21/6;object-fit:cover">
+
+        <div class="menu-title" style="margin-top:32px">Bebidas</div>
         <div style="max-width:380px;margin:14px auto 0;display:flex;flex-direction:column;gap:0">
           <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
             <span style="font-size:var(--fs-16);color:var(--fg1)">Caña</span>
