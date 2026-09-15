@@ -80,6 +80,10 @@
     .menu-media-row { grid-template-columns: 1fr !important; }
     .menu-media-row image-slot { max-width: 220px; margin: 0 auto; }
   }
+  @media (min-width: 901px) {
+    .nosotros-media { order: 2; }
+    .nosotros-text { order: 1; }
+  }
 </style>
 </helmet>
 
@@ -91,6 +95,7 @@
     </div>
     <nav data-nav="1" style="display:flex;align-items:center;gap:30px">
       <button type="button" onClick="{{ openFoodMenu }}" style="cursor:pointer;background:transparent;border:none;padding:0;font-family:var(--font-body);font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Menú</button>
+      <a href="#nosotros" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Nosotros</a>
       <a href="#galeria" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Galería</a>
       <a href="#llegar" style="font-size:var(--fs-14);font-weight:800;color:#fff;text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Cómo llegar</a>
       <a href="contacto.html" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Contáctanos</a>
@@ -111,6 +116,7 @@
     <div style="position:fixed;top:0;right:0;bottom:0;z-index:95;width:min(320px,86vw);background:#0c0808;border-left:1px solid rgba(255,255,255,0.1);padding:20px;display:flex;flex-direction:column;gap:6px;box-shadow:-16px 0 40px rgba(0,0,0,0.4)">
       <button type="button" onClick="{{ closeMenu }}" aria-label="Cerrar menú" style="align-self:flex-end;cursor:pointer;background:transparent;border:none;color:#fff;width:36px;height:36px;font-size:var(--fs-24);line-height:1">×</button>
       <button type="button" onClick="{{ openFoodMenuFromNav }}" style="cursor:pointer;text-align:left;background:transparent;border:none;padding:14px 8px;font-size:var(--fs-18);font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)">Menú</button>
+      <a href="#nosotros" onClick="{{ closeMenu }}" style="padding:14px 8px;font-size:var(--fs-18);font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)">Nosotros</a>
       <a href="#galeria" onClick="{{ closeMenu }}" style="padding:14px 8px;font-size:var(--fs-18);font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)">Galería</a>
       <a href="#llegar" onClick="{{ closeMenu }}" style="padding:14px 8px;font-size:var(--fs-18);font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)">Cómo llegar</a>
       <a href="contacto.html" style="padding:14px 8px;font-size:var(--fs-18);font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)">Contáctanos</a>
@@ -140,6 +146,21 @@
 
   <section style="position:relative;overflow:hidden;height:clamp(360px,48vw,580px);background:#0c0808">
     <video id="wakacombos-video" src="uploads/wakacombos.mp4" autoplay muted loop playsinline aria-label="Charlatana · Polígono Food" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
+  </section>
+
+  <section id="nosotros" style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div class="nosotros-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,48px);align-items:center">
+      <div class="nosotros-media" style="border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:4/3;position:relative">
+        <image-slot id="nosotros-local" shape="rect" src="uploads/bg_hero_charlatana.webp" style="position:absolute;inset:0;width:100%;height:100%;display:block" placeholder="Foto del local / espacio de coworking"></image-slot>
+      </div>
+      <div class="nosotros-text">
+        <div data-rise="1" class="s-eyebrow" style="font-family:'Dream Planner',var(--font-display);font-size:clamp(1.7rem,4.2vw,2.3rem)">Nosotros</div>
+        <h2 data-rise="1" class="s-h2" style="margin:12px 0 0;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-0.02em">Descubre el verdadero <span style="font-weight:800;color:var(--primary)">Polígono Food</span></h2>
+        <p class="s-body" style="margin:14px 0 0"><span style="font-weight:800;color:var(--primary)">Charlatana</span> es un restaurante, bar y cafetería ubicado en el Polígono Empresarial de Villaverde Alto, donde la comida casera y los sabores auténticos son protagonistas.</p>
+        <p class="s-body" style="margin:14px 0 0">Nuestro <span style="font-weight:800;color:var(--primary)">menú del día</span> ofrece opciones variadas, complementadas con <span style="font-weight:800;color:var(--primary)">bocadillos</span> generosos, carnes a la brasa, hamburguesas y parrilla, siempre con ingredientes de calidad.</p>
+        <p class="s-body" style="margin:14px 0 0">Además, contamos con buen <span style="font-weight:800;color:var(--primary)">café</span> para acompañar la jornada y un espacio de coworking para quienes buscan un lugar cómodo donde trabajar.</p>
+      </div>
+    </div>
   </section>
 
   <section style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(48px,7vw,72px) clamp(20px,4vw,32px)">
