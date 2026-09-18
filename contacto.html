@@ -31,6 +31,8 @@
   a { color: var(--primary); text-decoration: none; }
   a:hover { color: var(--primary-hover); }
   .contact-card:hover { transform: translateY(-2px); border-color: var(--primary); }
+  .footer-link { color: rgba(255,255,255,0.72); }
+  .footer-link:hover { color: #fff; }
 </style>
 </head>
 <body>
@@ -84,7 +86,10 @@
         <img src="assets/logo-charlatana.avif" alt="La Charlatana" style="height:clamp(64px,9vw,104px);width:auto;display:block">
       </span>
       <a href="index.html" style="font-size:var(--fs-14);font-weight:700;color:#fff">← Volver a la web</a>
-      <span style="font-size:var(--fs-12);font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6)">© 2026 Grupo La Charlatana · Madrid</span>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;font-size:var(--fs-12);font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6)">
+        <span>© 2026 Grupo La Charlatana</span>
+        <span><a class="footer-link" href="aviso-legal.html">Aviso Legal</a> · <a class="footer-link" href="privacidad.html">Política de Privacidad</a> · <a class="footer-link" href="cookies.html">Política de Cookies</a></span>
+      </div>
     </div>
   </footer>
 
