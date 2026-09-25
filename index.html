@@ -76,13 +76,34 @@
     [data-hamburger] { width: 34px !important; height: 34px !important; }
   }
   .menu-title { font-family: 'Dream Planner', var(--font-display); font-weight: 400; font-size: clamp(1.7rem,4.2vw,2.3rem); line-height: 1.05; color: var(--primary); text-transform: uppercase; text-align: center; margin: 0; }
+  .waka-slider-wrap { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-top: 8px; }
+  .waka-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; scroll-behavior: smooth; }
+  .waka-slider::-webkit-scrollbar { display: none; }
+  .waka-slide { position: relative; flex: 0 0 100%; scroll-snap-align: center; scroll-snap-stop: always; aspect-ratio: 4/5; overflow: hidden; background: var(--bg-muted); }
+  .waka-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .waka-slide-label { position: absolute; inset: 0 0 auto 0; padding: clamp(18px,4vw,28px) clamp(20px,4vw,32px) clamp(48px,9vw,72px); background: linear-gradient(to bottom, rgba(4,2,2,0.62) 0%, rgba(4,2,2,0.3) 55%, transparent 100%); }
+  .waka-slide-label span { display: inline-block; color: #fff; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem,5vw,2rem); letter-spacing: -0.01em; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
+  .waka-dots { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 14px; }
+  .waka-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border-strong); transition: background-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out); }
+  .waka-dot[data-active="1"] { background: var(--primary); transform: scale(1.4); }
+  @media (min-width: 700px) {
+    .waka-slider-wrap { width: 100%; margin-left: 0; margin-right: 0; }
+    .waka-slide { aspect-ratio: 16/9; border-radius: var(--r-lg); }
+  }
+  .food-menu-backdrop { padding: 20px 0; }
+  .food-menu-dialog { max-width: 100%; border-radius: 0; }
+  @media (min-width: 641px) {
+    .food-menu-backdrop { padding: 20px; }
+    .food-menu-dialog { max-width: min(50vw, 1441px); border-radius: var(--r-xl); }
+  }
   @media (max-width: 480px) {
     .menu-media-row { grid-template-columns: 1fr !important; }
     .menu-media-row image-slot { max-width: 220px; margin: 0 auto; }
   }
   @media (min-width: 901px) {
-    .nosotros-media { order: 2; }
+    .nosotros-media { order: 2; aspect-ratio: auto; height: 100%; }
     .nosotros-text { order: 1; }
+    .nosotros-break-mobile { display: none; }
   }
 </style>
 </helmet>
@@ -93,12 +114,12 @@
     <div data-brand="1" style="display:flex;align-items:center;gap:14px;min-width:0">
       <img data-logo="1" src="assets/logo-charlatana.avif" alt="La Charlatana" style="height:36px;width:auto;display:block;flex:none">
     </div>
-    <nav data-nav="1" style="display:flex;align-items:center;gap:30px">
-      <button type="button" onClick="{{ openFoodMenu }}" style="cursor:pointer;background:transparent;border:none;padding:0;font-family:var(--font-body);font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Menú</button>
-      <a href="#nosotros" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Nosotros</a>
-      <a href="#galeria" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Galería</a>
-      <a href="#llegar" style="font-size:var(--fs-14);font-weight:800;color:#fff;text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Cómo llegar</a>
-      <a href="contacto.html" style="font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;text-underline-offset:4px;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)" style-hover="color:var(--primary);text-decoration:underline;transform:scale(1.06)">Contáctanos</a>
+    <nav data-nav="1" style="display:flex;align-items:center;gap:6px">
+      <button type="button" onClick="{{ openFoodMenu }}" style="cursor:pointer;background:transparent;border:none;padding:9px 16px;border-radius:var(--r-pill);font-family:var(--font-body);font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;transition:background-color var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out)" style-hover="background:#fff;color:var(--primary);font-weight:800">Menú</button>
+      <a href="#nosotros" style="padding:9px 16px;border-radius:var(--r-pill);font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;transition:background-color var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out)" style-hover="background:#fff;color:var(--primary);font-weight:800">Nosotros</a>
+      <a href="#galeria" style="padding:9px 16px;border-radius:var(--r-pill);font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;transition:background-color var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out)" style-hover="background:#fff;color:var(--primary);font-weight:800">Galería</a>
+      <a href="#llegar" style="padding:9px 16px;border-radius:var(--r-pill);font-size:var(--fs-14);font-weight:800;color:#fff;text-decoration:none;transition:background-color var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out)" style-hover="background:#fff;color:var(--primary);font-weight:800">Cómo llegar</a>
+      <a href="contacto.html" style="padding:9px 16px;border-radius:var(--r-pill);font-size:var(--fs-14);font-weight:600;color:rgba(255,255,255,0.88);text-decoration:none;transition:background-color var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out)" style-hover="background:#fff;color:var(--primary);font-weight:800">Contáctanos</a>
     </nav>
     <button data-hamburger="1" type="button" onClick="{{ toggleMenu }}" aria-label="Abrir menú" style="cursor:pointer;background:transparent;border:1.5px solid rgba(255,255,255,0.4);border-radius:var(--r-md);width:44px;height:44px;align-items:center;justify-content:center;flex:none">
       <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M2 5h16M2 10h16M2 15h16"/></svg>
@@ -133,6 +154,7 @@
       </h1>
       <p data-rise="1" style="transition-delay:160ms;margin:6px auto 0;font-family:'Dream Planner',var(--font-body);font-weight:400;font-size:var(--fs-24);text-transform:uppercase;color:rgba(255,255,255,0.85)">A 10 MINUTOS DEL CONCIERTO</p>
       <p data-rise="1" style="transition-delay:220ms;margin:10px auto 0;max-width:46ch;font-size:var(--fs-18);line-height:1.5;color:rgba(255,255,255,0.92);text-wrap:pretty"><span style="font-weight:800">¿Vas al concierto?</span> Ven a vivir <span style="font-weight:800">LA PREVIA</span>, te esperan regalos, sorpresas y todo lo necesario <span style="font-weight:800">pa'pasarla bien</span>.</p>
+      <button type="button" onClick="{{ openFoodMenu }}" data-rise="1" style="transition-delay:280ms;margin:22px auto 0;cursor:pointer;background:var(--primary);color:#fff;border:none;border-radius:var(--r-pill);padding:15px 36px;font-size:var(--fs-16);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;box-shadow:var(--shadow-brand);transition:opacity 620ms var(--ease-out),transform 620ms var(--ease-out),background-color var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out)" style-hover="background:#fff;color:var(--primary);font-weight:800">Ver Menú</button>
     </div>
   </section>
 
@@ -141,12 +163,12 @@
   </section>
 
   <section id="nosotros" style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) clamp(24px,4vw,40px)">
-    <div class="nosotros-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,48px);align-items:center">
-      <div class="nosotros-media" style="border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:4/3;position:relative">
-        <image-slot id="nosotros-local" shape="rect" src="uploads/bg_hero_charlatana.webp" style="position:absolute;inset:0;width:100%;height:100%;display:block" placeholder="Foto del local / espacio de coworking"></image-slot>
+    <div class="nosotros-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,48px);align-items:stretch">
+      <div class="nosotros-media" style="border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:4/3;position:relative;background:#0a0505">
+        <img src="assets/nosotros-charlatana-neon.jpg" alt="Cartel de neón Charlatana · Polígono Food" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
       </div>
       <div class="nosotros-text">
-        <h2 data-rise="1" class="s-h2" style="margin:0;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-0.02em">Descubre el verdadero <span style="font-weight:800;color:var(--primary)">Polígono Food</span></h2>
+        <h2 data-rise="1" class="s-h2" style="margin:0;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-0.02em">Descubre el verdadero <br class="nosotros-break-mobile"><span style="font-weight:800;color:var(--primary)">Polígono Food</span></h2>
         <p class="s-body" style="margin:14px 0 0"><span style="font-weight:800;color:var(--primary)">Charlatana</span> es un restaurante, bar y cafetería ubicado en el Polígono Empresarial de Villaverde Alto, donde la comida casera y los sabores auténticos son protagonistas.</p>
         <p class="s-body" style="margin:14px 0 0">Nuestro <span style="font-weight:800;color:var(--primary)">menú del día</span> ofrece opciones variadas, complementadas con <span style="font-weight:800;color:var(--primary)">bocadillos</span> generosos, carnes a la brasa, hamburguesas y parrilla, siempre con ingredientes de calidad.</p>
         <p class="s-body" style="margin:14px 0 0">Además, contamos con buen <span style="font-weight:800;color:var(--primary)">café</span> para acompañar la jornada y un espacio de coworking para quienes buscan un lugar cómodo donde trabajar.</p>
@@ -158,19 +180,46 @@
   <sc-if value="{{ verGaleria }}" hint-placeholder-val="{{ true }}">
     <section id="galeria" style="max-width:var(--maxw-page);margin:0 auto;padding:clamp(24px,4vw,40px) clamp(20px,4vw,32px) 0">
       <div data-rise="1" class="s-eyebrow" style="font-family:'Dream Planner',var(--font-display);font-size:clamp(1.7rem,4.2vw,2.3rem)">Los wakaCombos</div>
-      <h2 data-rise="1" class="s-h2" style="margin:12px 0 40px;font-size:clamp(1.3rem,2.8vw,1.9rem)">Deliciosos platos colombianos, arepas, empanadas, perritos, bocadillos, hamburguesas... <span style="color:var(--primary)">¡¡Todos con bebida incluida!!</span></h2>
-      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(150px,18vw,220px);gap:16px" data-gal="1">
-        <div style="grid-column:span 2;grid-row:span 2;border-radius:var(--r-lg);overflow:hidden;background:var(--bg-muted)">
-          <img src="assets/waka-salchipapas.jpg" alt="Salchipapas con salchichas, ketchup y mahonesa" style="width:100%;height:100%;object-fit:cover;display:block">
+      <h2 data-rise="1" class="s-h2" style="margin:12px 0 8px;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-0.02em">¡¡Todos con bebida incluida!!</h2>
+      <p data-rise="1" class="s-body" style="margin:0 0 40px;max-width:60ch;font-size:clamp(1.75rem,3.5vw,2.5rem);line-height:1.2;font-weight:500;color:var(--fg1)">Deliciosos platos colombianos, arepas, empanadas, perritos, bocadillos, hamburguesas...</p>
+      <div class="waka-slider-wrap">
+        <div class="waka-slider" id="waka-slider">
+          <div class="waka-slide">
+            <img src="assets/waka-perrito.jpg" alt="Perrito caliente con queso y patatas" loading="lazy">
+            <div class="waka-slide-label"><span>Perrito</span></div>
+          </div>
+          <div class="waka-slide">
+            <img src="assets/waka-bocadillo-caliente.jpg" alt="Bocadillo caliente de pollo y queso" loading="lazy">
+            <div class="waka-slide-label"><span>Bocadillo caliente</span></div>
+          </div>
+          <div class="waka-slide">
+            <img src="assets/waka-arepa.jpg" alt="Arepa rellena de pollo y queso" loading="lazy">
+            <div class="waka-slide-label"><span>Arepa</span></div>
+          </div>
+          <div class="waka-slide">
+            <img src="assets/waka-bocadillo-frio.jpg" alt="Bocadillo frío de tortilla" loading="lazy">
+            <div class="waka-slide-label"><span>Bocadillo frío</span></div>
+          </div>
+          <div class="waka-slide">
+            <img src="assets/waka-hamburguesa.jpg" alt="Hamburguesa casera con queso, lechuga y tomate" loading="lazy">
+            <div class="waka-slide-label"><span>Hamburguesa casera</span></div>
+          </div>
+          <div class="waka-slide">
+            <img src="assets/waka-empanada.jpg" alt="Empanada colombiana con ají" loading="lazy">
+            <div class="waka-slide-label"><span>Empanada colombiana</span></div>
+          </div>
+          <div class="waka-slide" data-clone="1" aria-hidden="true">
+            <img src="assets/waka-perrito.jpg" alt="" loading="lazy">
+            <div class="waka-slide-label"><span>Perrito</span></div>
+          </div>
         </div>
-        <div style="border-radius:var(--r-lg);overflow:hidden;background:var(--bg-muted)">
-          <img src="assets/waka-perrito.jpg" alt="Perrito caliente con queso y patatas" style="width:100%;height:100%;object-fit:cover;display:block">
-        </div>
-        <div style="border-radius:var(--r-lg);overflow:hidden;background:var(--bg-muted)">
-          <img src="assets/waka-sandwich.jpg" alt="Sándwich de pollo con queso, jamón y tomate" style="width:100%;height:100%;object-fit:cover;display:block">
-        </div>
-        <div style="grid-column:span 2;border-radius:var(--r-lg);overflow:hidden;background:var(--bg-muted)">
-          <img src="assets/waka-empanadas.jpg" alt="Empanadas colombianas con ají" style="width:100%;height:100%;object-fit:cover;display:block">
+        <div class="waka-dots" id="waka-dots">
+          <span class="waka-dot" data-active="1"></span>
+          <span class="waka-dot"></span>
+          <span class="waka-dot"></span>
+          <span class="waka-dot"></span>
+          <span class="waka-dot"></span>
+          <span class="waka-dot"></span>
         </div>
       </div>
     </section>
@@ -248,119 +297,10 @@
   </footer>
 
   <sc-if value="{{ foodMenuOpen }}" hint-placeholder-val="{{ false }}">
-    <div role="dialog" aria-modal="true" aria-label="Polígono Food" onClick="{{ onFoodBackdropClick }}" style="position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(10,4,4,0.72);backdrop-filter:blur(6px)">
-      <div style="position:relative;width:100%;max-width:760px;max-height:calc(100vh - 40px);overflow-y:auto;box-sizing:border-box;background:#fff url('assets/bg-textura.jpg') repeat center / 1200px auto;border-radius:var(--r-xl);padding:44px 32px 36px;box-shadow:var(--shadow-lg)">
-        <button type="button" onClick="{{ closeFoodMenu }}" aria-label="Cerrar" style="position:absolute;top:16px;right:16px;cursor:pointer;width:34px;height:34px;border-radius:50%;border:none;background:var(--bg-muted);color:var(--fg1);font-size:var(--fs-18);line-height:1" style-hover="background:var(--primary-soft);color:var(--primary)">×</button>
-        <img src="assets/logo-charlatana-rayo.avif" alt="Charlatana · Polígono Food" style="display:block;margin:0 auto 20px;height:64px;width:auto">
-
-        <div class="menu-title">Solo los días de concierto</div>
-
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(4px,1.5vw,10px);max-width:480px;margin:16px auto 0">
-          <div style="background:var(--bg-muted);border-radius:var(--r-md);padding:clamp(5px,1.5vw,12px) 4px;text-align:center">
-            <div style="font-size:clamp(7px,2vw,11px);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--fg1);white-space:nowrap">Sep</div>
-            <div style="font-size:clamp(12px,3.6vw,18px);font-weight:900;color:var(--fg1);margin-top:2px;white-space:nowrap">18–20</div>
-          </div>
-          <div style="background:var(--bg-muted);border-radius:var(--r-md);padding:clamp(5px,1.5vw,12px) 4px;text-align:center">
-            <div style="font-size:clamp(7px,2vw,11px);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--fg1);white-space:nowrap">Sep</div>
-            <div style="font-size:clamp(12px,3.6vw,18px);font-weight:900;color:var(--fg1);margin-top:2px;white-space:nowrap">25–27</div>
-          </div>
-          <div style="background:var(--bg-muted);border-radius:var(--r-md);padding:clamp(5px,1.5vw,12px) 4px;text-align:center">
-            <div style="font-size:clamp(7px,2vw,11px);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--fg1);white-space:nowrap">Oct</div>
-            <div style="font-size:clamp(12px,3.6vw,18px);font-weight:900;color:var(--fg1);margin-top:2px;white-space:nowrap">2–4</div>
-          </div>
-          <div style="background:var(--bg-muted);border-radius:var(--r-md);padding:clamp(5px,1.5vw,12px) 4px;text-align:center">
-            <div style="font-size:clamp(7px,2vw,11px);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--fg1);white-space:nowrap">Oct</div>
-            <div style="font-size:clamp(12px,3.6vw,18px);font-weight:900;color:var(--fg1);margin-top:2px;white-space:nowrap">9–11</div>
-          </div>
-        </div>
-        <p class="s-caption" style="margin:8px 0 0;text-align:center">Viernes a domingo</p>
-
-        <img src="assets/dias-conciertos-banner.jpg" alt="Sándwich, salchipapas, perrito, empanadas y papas rellenas" style="display:block;width:calc(100% + 64px);margin:20px -32px 0;max-width:none;aspect-ratio:21/6;object-fit:cover">
-
-        <div class="menu-title" style="margin-top:32px">Bebidas</div>
-        <div style="max-width:380px;margin:14px auto 0;display:flex;flex-direction:column;gap:0">
-          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:var(--fs-16);color:var(--fg1)">Caña</span>
-            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">3 €</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:var(--fs-16);color:var(--fg1)">Refresco</span>
-            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">3 €</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:var(--fs-16);color:var(--fg1)">Minis</span>
-            <span style="font-size:var(--fs-16);font-weight:800;color:var(--primary)">6 €</span>
-          </div>
-        </div>
-
-        <div class="menu-title" style="margin-top:32px">WakaCombos</div>
-        <p class="s-caption" style="margin:4px 0 0;text-align:center;font-style:italic">Todos los Wakacombos incluyen una bebida a elegir</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px">
-          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Uno · Ciega sordomuda</span>
-              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary);white-space:nowrap">7 €</span>
-            </div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bebida (refresco/doble)</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 arepa frita rellena</li>
-            </ul>
-          </div>
-          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Dos · La Tortura</span>
-              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary);white-space:nowrap">6 €</span>
-            </div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bebida (refresco/doble)</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bocadillo frío a elegir: jamón con tomate o tortilla</li>
-            </ul>
-          </div>
-          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Tres · Perro Fiel</span>
-              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary);white-space:nowrap">6 €</span>
-            </div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bebida (refresco/doble)</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 perrito caliente</li>
-            </ul>
-          </div>
-          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Cuatro · Inevitable</span>
-              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary);white-space:nowrap">7 €</span>
-            </div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bebida (refresco/doble)</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bocadillo caliente a elegir: lomo-queso, bacon-queso o pollo plancha</li>
-            </ul>
-          </div>
-          <div style="border:1.5px solid var(--primary);border-radius:var(--r-lg);padding:14px 16px;background:var(--primary-soft)">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Cinco · Viva Colombia</span>
-              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary);white-space:nowrap">5 €</span>
-            </div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bebida (refresco/doble)</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 empanada colombiana</li>
-            </ul>
-          </div>
-          <div style="border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-              <span style="font-weight:800;font-size:var(--fs-16);color:var(--fg1)">Combo Seis · La de la Intuición</span>
-              <span style="font-weight:900;font-size:var(--fs-16);color:var(--primary);white-space:nowrap">10 €</span>
-            </div>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px">
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 bebida (refresco/doble)</li>
-              <li style="display:flex;gap:8px;font-size:var(--fs-14);color:var(--fg2)"><span style="color:var(--primary);font-weight:800">·</span>1 hamburguesa (carne, queso, bacon)</li>
-            </ul>
-          </div>
-        </div>
-
-        <div style="margin:28px auto 0;max-width:380px;text-align:center;background:var(--primary-soft);color:var(--primary);border-radius:var(--r-pill);padding:12px 20px;font-weight:800;font-size:var(--fs-14);text-transform:uppercase;letter-spacing:0.04em">Chupito de Limonchello gratis con tu Wakacombo</div>
-
-        <button type="button" onClick="{{ closeFoodMenu }}" style="margin-top:24px;width:100%;cursor:pointer;background:var(--primary);color:#fff;border:none;border-radius:var(--r-pill);padding:14px 20px;font-size:var(--fs-14);font-weight:700;letter-spacing:0.06em;text-transform:uppercase" style-hover="background:var(--primary-hover)">Cerrar</button>
+    <div role="dialog" aria-modal="true" aria-label="Polígono Food" onClick="{{ onFoodBackdropClick }}" class="food-menu-backdrop" style="position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;background:rgba(10,4,4,0.72);backdrop-filter:blur(6px)">
+      <div class="food-menu-dialog" style="position:relative;width:100%;max-height:calc(100vh - 40px);overflow-y:auto;box-sizing:border-box;background:#000;box-shadow:var(--shadow-lg)">
+        <button type="button" onClick="{{ closeFoodMenu }}" aria-label="Cerrar" style="position:absolute;top:16px;right:16px;z-index:2;cursor:pointer;width:34px;height:34px;border-radius:50%;border:none;background:rgba(255,255,255,0.92);color:var(--fg1);font-size:var(--fs-18);line-height:1" style-hover="background:#fff;color:var(--primary)">×</button>
+        <img src="assets/wakacombos-menu-poster.webp" alt="¡WakaCombos! Menú de La Charlatana a solo 10 minutos del concierto" style="display:block;width:100%;height:auto">
       </div>
     </div>
   </sc-if>
@@ -382,6 +322,59 @@ class Component extends DCLogic {
     }
   }
 
+  // Slider full-bleed de WakaCombos: avanza solo cada 1.8s en bucle continuo
+  // (un slide clon del primero al final permite saltar hacia delante siempre,
+  // sin rebotar hacia atrás; al llegar al clon se reposiciona sin animación
+  // en el slide real 0, invisible porque el clon es idéntico). Los dots se
+  // sincronizan por IntersectionObserver, robusto ante resize/momentum-scroll.
+  _setupWakaSlider() {
+    const slider = document.getElementById('waka-slider');
+    if (!slider) return;
+    const allSlides = Array.from(slider.querySelectorAll('.waka-slide'));
+    const realSlides = allSlides.filter(s => !s.hasAttribute('data-clone'));
+    const dots = Array.from(document.querySelectorAll('#waka-dots .waka-dot'));
+
+    const setActive = i => {
+      dots.forEach((d, di) => { if (di === i) d.setAttribute('data-active', '1'); else d.removeAttribute('data-active'); });
+    };
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting || e.intersectionRatio <= 0.6) return;
+        setActive(e.target.hasAttribute('data-clone') ? 0 : realSlides.indexOf(e.target));
+      });
+    }, { root: slider, threshold: [0.6] });
+    allSlides.forEach(s => io.observe(s));
+    this._wakaIO = io;
+
+    // Tras cada scroll (programático o manual), si aterriza en el clon final
+    // lo sustituye al instante por el slide 0 real, sin transición visible.
+    let scrollDebounce;
+    const onSettle = () => {
+      const i = Math.round(slider.scrollLeft / slider.clientWidth);
+      if (i === allSlides.length - 1) slider.scrollTo({ left: 0, behavior: 'instant' });
+    };
+    slider.addEventListener('scroll', () => {
+      clearTimeout(scrollDebounce);
+      scrollDebounce = setTimeout(onSettle, 120);
+    }, { passive: true });
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const advance = () => {
+      const next = Math.round(slider.scrollLeft / slider.clientWidth) + 1;
+      slider.scrollTo({ left: slider.clientWidth * next, behavior: 'smooth' });
+    };
+    const stop = () => clearInterval(this._wakaTimer);
+    const start = () => { if (!reduced && realSlides.length > 1) this._wakaTimer = setInterval(advance, 1800); };
+    start();
+    this._wakaStop = stop;
+
+    slider.addEventListener('pointerdown', stop, { passive: true });
+    slider.addEventListener('pointerup', () => { stop(); setTimeout(start, 2200); }, { passive: true });
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+  }
+
   componentDidMount() {
     // El atributo "muted" del <video> no siempre lo respeta el runtime; se
     // fuerza aquí para que el autoplay funcione sin sonido.
@@ -391,6 +384,8 @@ class Component extends DCLogic {
       banner.loop = true;
       banner.play().catch(() => {});
     }
+
+    this._setupWakaSlider();
 
     const SEL = '[data-rise]:not([data-in]),[data-pop]:not([data-in]),[data-fade]:not([data-in])';
     this._pending = () => document.querySelectorAll(SEL);
@@ -430,6 +425,8 @@ class Component extends DCLogic {
     if (this._safety) clearTimeout(this._safety);
     if (this._raf) cancelAnimationFrame(this._raf);
     if (this._onKeydown) document.removeEventListener('keydown', this._onKeydown);
+    if (this._wakaIO) this._wakaIO.disconnect();
+    if (this._wakaStop) this._wakaStop();
     if (this.state.foodMenuOpen) this.lockScroll(false);
   }
 
